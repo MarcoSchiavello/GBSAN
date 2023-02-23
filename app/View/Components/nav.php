@@ -6,8 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class nav extends Component
-{
+class nav extends Component {
     private $logo;
     private $logged;
 
