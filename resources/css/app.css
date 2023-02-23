@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran&family=Fira+Sans&family=Quattrocento+Sans&display=swap');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+    --clr-primary: #004369;
+    --clr-secondary: #01949A;
+    --clr-terziary: #DB1F48;
+    --clr-bg: #E5DDC8;
+
+    --fnt-title: 'Fira Sans', sans-serif;
+    --fnt-subtutle: 'Catamaran', sans-serif;
+    --fnt-text: 'Quattrocento Sans', sans-serif;
+
+}
+
+body {
+    background-color: var(--clr-bg);
+}
