@@ -15,7 +15,7 @@
 
         <div class="flex items-start w-4/5 gap-12">
             <div class="flex items-center justify-center w-1/2">     
-                <img class="w-63 rounded-xl" src="{{ asset('imgs/flag.png') }}" alt="Guinea bissau flag">
+                <img class="max-w-xs rounded-xl" src="{{ asset('imgs/flag.png') }}" alt="Guinea bissau flag">
             </div>
             <div class="flex flex-col items-start justify-center w-1/2 gap-3">     
                 <h1 class="text-3xl font-bold text-terziary-clr font-title-fnt">GBSAN</h1>

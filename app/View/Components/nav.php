@@ -7,16 +7,14 @@ use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class nav extends Component {
-    private $logo;
-    private $logged;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($logo = true, $logged = false) {
-        $this->logo = $logo;
-        $this->logged = $logged;
-    }
+    public function __construct(
+        public bool $logo = true,
+        public bool $auth = false,
+    ) { }
 
     /**
      * Get the view / contents that represent the component.

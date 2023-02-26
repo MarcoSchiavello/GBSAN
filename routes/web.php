@@ -21,3 +21,13 @@ Route::get('/login', function () {
     return view('login');
 });
 
+
+Route::get('/patients', function () {
+    return view('patients');
+});
+
+Route::get('/add/patient', function () {
+    return view('forms/patient');
+});
+
+
