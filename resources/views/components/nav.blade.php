@@ -1,3 +1,8 @@
+@props([
+    'auth' => false,
+    'logo' => true,
+])
+
 <div class="flex flex-row items-center justify-between w-full py-3 px-11">
     <a href="{{ !$auth ?  '/' : '/patients' }}"><img src="{{ asset('imgs/logo.png') }}" alt="logo" @class(['w-20', 'opacity-0' => !$logo])></a>
 
