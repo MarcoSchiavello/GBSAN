@@ -11,7 +11,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body class="flex flex-col items-center justify-between gap-20">
-        <x-nav :auth="true" />
+        <x-partials.nav :auth="true" />
 
         <main class="flex flex-col items-start justify-between w-5/6">
             <h4 class="font-bold text-md text-primary-clr">Ciao, Marco</h4>

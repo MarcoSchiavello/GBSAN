@@ -11,7 +11,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body class="flex flex-col">
-        <x-nav :logo="false" />
+        <x-partials.nav :logo="false" />
 
         <form action="/login" method="POST" class="flex flex-col items-center justify-center w-1/5 h-full gap-10 m-auto">
             @csrf

@@ -11,7 +11,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body class="flex flex-col items-center justify-between gap-20">
-        <x-nav />
+        <x-partials.nav />
 
         <div class="flex items-start w-4/5 gap-12">
             <div class="flex items-center justify-center w-1/2">     

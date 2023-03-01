@@ -474,6 +474,9 @@ video {
 .cursor-pointer{
   cursor: pointer;
 }
+.resize-none{
+  resize: none;
+}
 .grid-flow-row-dense{
   grid-auto-flow: row dense;
 }
@@ -524,6 +527,15 @@ video {
 }
 .gap-4{
   gap: 1rem;
+}
+.gap-44{
+  gap: 11rem;
+}
+.gap-6{
+  gap: 1.5rem;
+}
+.gap-8{
+  gap: 2rem;
 }
 .overflow-hidden{
   overflow: hidden;
