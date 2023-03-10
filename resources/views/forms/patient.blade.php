@@ -2,10 +2,17 @@
 
 @section('title', 'Aggiungi Paziente')
 
-@section('form', 'patient')
+@section('form', '/add/patient')
 
 @section('content')
+    <div class="absolute flex items-center justify-center w-48 h-48 p-10 text-center border-2 rounded-md left-11 top-1/4 border-primary-clr">
+        clic per aggiungere img
+    </div>
     <x-inputs.text size="sm" name="name" label="Nominativo *" />
+    <div class="flex justify-between w-full gap-3">
+        <x-inputs.text size="sm" name="id" label="ID anagrafe" />
+        <x-inputs.text size="sm" name="phone" label="Telefono" />
+    </div>
     <div class="flex justify-between w-full gap-3">
         <x-inputs.text size="sm" name="birthDate" label="Data Nascita *" type="date" />
         <x-inputs.text size="sm" name="sex" label="Sesso *" />

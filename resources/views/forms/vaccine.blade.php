@@ -2,7 +2,7 @@
 
 @section('title', 'Aggiungi Vaccino')
 
-@section('form', 'vaccine')
+@section('form', '/add/vaccine')
 
 @section('content')
     <x-inputs.text size="sm" name="code" label="Codice *" />

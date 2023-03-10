@@ -2,7 +2,7 @@
 
 @section('title', 'Aggiungi Vaccianazione a Nome Paziente')
 
-@section('form', '/add/village')
+@section('form', '/patient/1/add/vaccination')
 
 @section('content')
     <x-inputs.text size="sm" name="vaccine" label="Vaccino *" />

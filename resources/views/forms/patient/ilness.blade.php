@@ -1,8 +1,8 @@
 @extends('forms.template')
 
-@section('title', 'Aggiungi disturbo')
+@section('title', 'Aggiungi disturbo a Nome Paziente')
 
-@section('form', '/add/ilness')
+@section('form', '/patient/1/add/ilness')
 
 @section('content')
     <x-inputs.text size="sm" name="name" label="Nome Disturbo *" />

@@ -2,7 +2,7 @@
 
 @section('title', 'Aggiungi Villagio')
 
-@section('form', 'village')
+@section('form', '/add/village')
 
 @section('content')
     <x-inputs.text size="sm" name="name" label="Nome *" />

@@ -13,7 +13,7 @@
     <body class="flex flex-col items-center justify-between gap-20">
         <x-partials.nav :auth="true" />
 
-        <form action="/add/@yield('form')" method="POST" class="flex flex-col items-start justify-between w-2/3 gap-4">
+        <form action="@yield('form')" method="POST" class="flex flex-col items-start justify-between w-2/3 gap-4">
             @csrf
             <h1 class="m-auto text-3xl font-bold text-terziary-clr font-title-fnt">@yield('title')</h1>
             @yield('content')
