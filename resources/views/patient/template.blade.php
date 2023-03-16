@@ -13,12 +13,15 @@
     <body class="flex flex-col items-center justify-between gap-20">
         <x-partials.nav :auth="true" />
 
-        <div class="flex flex-col w-2/3 gap-12">
+        <div class="flex flex-col w-2/3 gap-9">
             <div class="flex justify-between">
-                <h1 class="text-5xl font-bold text-terziary-clr font-title-fnt">Marco Schiavello</h1>
+                <div class="flex items-baseline gap-3">
+                    <div class="w-16 h-16 bg-slate-500"></div>
+                    <h1 class="text-5xl font-bold text-terziary-clr font-title-fnt">Marco Schiavello</h1>
+                </div>
                 <div class="flex gap-3">
-                    <x-controls.button text="action" />
-                    <x-controls.button text="action" />
+                    <x-controls.button type="button" :fit="true" ><x-ri-pencil-fill class="w-14 fill-bg-clr" /></x-controls.button>
+                    <x-controls.button type="button" :fit="true" ><x-ri-delete-bin-5-fill class="w-14 fill-bg-clr" /></x-controls.button>
                 </div>
             </div>
 

@@ -11,6 +11,7 @@ module.exports = {
         "primary-clr": "var(--clr-primary)",
         "secondary-clr": "var(--clr-secondary)",
         "terziary-clr": "var(--clr-terziary)",
+        "text-clr": "var(--clr-text)",        
         "bg-clr": "var(--clr-bg)",
       },
       fontFamily: {

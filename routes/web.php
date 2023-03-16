@@ -62,5 +62,19 @@ Route::get('/patient/1', function () {
     return view('patient.template');
 });
 
+Route::get('/patient/1/illnesses', function () {
+    return view('patient.illnesses');
+});
 
+Route::get('/patient/1/diseases', function () {
+    return view('patient.diseases');
+});
+
+Route::get('/patient/1/vaccination', function () {
+    return view('patient.vaccination');
+});
+
+Route::get('/settings/print', function () {
+    return view('settings.print');
+});
 
