@@ -78,3 +78,10 @@ Route::get('/settings/print', function () {
     return view('settings.print');
 });
 
+Route::get('/settings/change', function () {
+    return view('settings.change');
+});
+
+Route::get('/settings/addop', function () {
+    return view('settings.addAdmin');
+});
