@@ -6,5 +6,5 @@
 
 @section('content')
     <x-inputs.text size="sm" name="name" label="Nome malatia *" />
-    <x-inputs.text size="sm" name="code" label="Codice*" type="number" />
+    <x-inputs.text size="sm" name="code" label="Codice*" />
 @endsection

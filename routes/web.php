@@ -46,6 +46,10 @@ Route::get('/patient/1/add/vaccination', function () {
     return view('forms.patient.vaccination');
 });
 
+Route::get('/patient/1/add/prescription', function () {
+    return view('forms.patient.prescription');
+});
+
 Route::get('/add/vaccine', function () {
     return view('forms.vaccine');
 });
@@ -56,6 +60,10 @@ Route::get('/add/ilness', function () {
 
 Route::get('/add/disease', function () {
     return view('forms.disease');
+});
+
+Route::get('/add/medicine', function () {
+    return view('forms.medicine');
 });
 
 Route::get('/patient/1', function () {
@@ -72,6 +80,10 @@ Route::get('/patient/1/diseases', function () {
 
 Route::get('/patient/1/vaccination', function () {
     return view('patient.vaccination');
+});
+
+Route::get('/patient/1/prescriptions', function () {
+    return view('patient.prescriptions');
 });
 
 Route::get('/settings/print', function () {

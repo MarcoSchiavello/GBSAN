@@ -414,11 +414,29 @@ video {
 .right-2{
   right: 0.5rem;
 }
+.right-20{
+  right: 5rem;
+}
 .top-1\/4{
   top: 25%;
 }
 .top-2{
   top: 0.5rem;
+}
+.top-5{
+  top: 1.25rem;
+}
+.left-0{
+  left: 0px;
+}
+.top-0{
+  top: 0px;
+}
+.z-50{
+  z-index: 50;
+}
+.z-30{
+  z-index: 30;
 }
 .col-span-2{
   grid-column: span 2 / span 2;
@@ -456,8 +474,14 @@ video {
 .h-16{
   height: 4rem;
 }
+.h-32{
+  height: 8rem;
+}
 .h-48{
   height: 12rem;
+}
+.h-80{
+  height: 20rem;
 }
 .h-\[74vh\]{
   height: 74vh;
@@ -468,9 +492,6 @@ video {
 .h-max{
   height: -moz-max-content;
   height: max-content;
-}
-.h-80{
-  height: 20rem;
 }
 .w-1\/2{
   width: 50%;
@@ -523,8 +544,14 @@ video {
 .w-full{
   width: 100%;
 }
+.w-40{
+  width: 10rem;
+}
 .max-w-xs{
   max-width: 20rem;
+}
+.transform{
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .cursor-pointer{
   cursor: pointer;
@@ -558,6 +585,9 @@ video {
 }
 .items-baseline{
   align-items: baseline;
+}
+.justify-end{
+  justify-content: flex-end;
 }
 .justify-center{
   justify-content: center;
@@ -594,6 +624,12 @@ video {
 }
 .gap-9{
   gap: 2.25rem;
+}
+.gap-8{
+  gap: 2rem;
+}
+.gap-5{
+  gap: 1.25rem;
 }
 .overflow-auto{
   overflow: auto;
@@ -641,9 +677,9 @@ video {
 .bg-bg-clr{
   background-color: var(--clr-bg);
 }
-.bg-gray-50{
+.bg-black{
   --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 .bg-primary-clr{
   background-color: var(--clr-primary);
@@ -659,11 +695,17 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-opacity-75{
+  --tw-bg-opacity: 0.75;
+}
 .fill-bg-clr{
   fill: var(--clr-bg);
 }
 .fill-text-clr{
   fill: var(--clr-text);
+}
+.fill-secondary-clr{
+  fill: var(--clr-secondary);
 }
 .p-1{
   padding: 0.25rem;
@@ -673,6 +715,9 @@ video {
 }
 .p-2{
   padding: 0.5rem;
+}
+.p-7{
+  padding: 1.75rem;
 }
 .px-11{
   padding-left: 2.75rem;
@@ -746,13 +791,13 @@ video {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
-.text-xl{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 .font-bold{
   font-weight: 700;
@@ -771,6 +816,9 @@ video {
 }
 .opacity-0{
   opacity: 0;
+}
+.opacity-75{
+  opacity: 0.75;
 }
 .outline-none{
   outline: 2px solid transparent;
