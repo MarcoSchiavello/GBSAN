@@ -14,7 +14,7 @@
         <x-partials.nav :auth="true" />
 
         <main class="flex flex-col items-start justify-between w-5/6">
-            <h4 class="font-bold text-md text-primary-clr">Ciao, Marco</h4>
+            <h4 class="font-bold text-md text-primary-clr">Ciao, {!!  Auth::user()->name . ' ' . Auth::user()->surname !!}</h4>
             <h1 class="mb-10 text-5xl font-bold text-terziary-clr">Lista Pazienti</h1>
             <h2 class="mb-2 text-2xl font-bold text-primary-clr">Filtri</h2>
             <div class="grid w-full grid-flow-row-dense grid-cols-6 gap-2">
@@ -35,16 +35,16 @@
                     <h1 class="col-span-2">Gruppo sanguigno</h1>
                     <h1 class="col-span-2">Villagio</h1>
                 </div>
-                @for($i = 0; $i < 20; $i ++)
+                @foreach ($patients as $patient)
                     <div class="grid grid-cols-11 font-bold font-text-fnt ease-out duration-300 hover:bg-gray-400 cursor-pointer [&>:not(:last-child)]:border-r-2 [&>*]:px-2 [&>*]:py-1 [&>:not(:last-child)]:border-secondary-clr">
-                        <h1 class="col-span-3">Nominativo</h1>
-                        <h1 class="col-span-2">Data di nascita</h1>
-                        <h1>Eta</h1>
-                        <h1>Sesso</h1>
-                        <h1 class="col-span-2">Gruppo sanguigno</h1>
-                        <h1 class="col-span-2">Villagio</h1>
+                        <h1 class="col-span-3">{!! $patient->name . $patient->surname !!}Nominativo</h1>
+                        <h1 class="col-span-2">{!! $patient->birth_date !!}Data di nascita</h1>
+                        <h1>{!! $patient->birth_date !!}Eta</h1>
+                        <h1>{!! $patient->sex !!}Sesso</h1>
+                        <h1 class="col-span-2">{!! $patient->blood_type !!}Gruppo sanguigno</h1>
+                        <h1 class="col-span-2">{!! $patient->village->name !!}Villagio</h1>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </main>
     </body>

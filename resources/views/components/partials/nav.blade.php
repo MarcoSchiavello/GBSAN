@@ -29,8 +29,8 @@
                     @endif
                 </div>
             </div>
-            <a href="/login"><h2 class="duration-500 ease-in-out cursor-pointer hover:text-terziary-clr transirion">Impostazioni</h2></a>
-            <a href="/"><h2 class="duration-500 ease-in-out cursor-pointer hover:text-terziary-clr transirion">Logout</h2></a>
+            <a href="/settings/print"><h2 class="duration-500 ease-in-out cursor-pointer hover:text-terziary-clr transirion">Impostazioni</h2></a>
+            <a href="/logout"><h2 class="duration-500 ease-in-out cursor-pointer hover:text-terziary-clr transirion">Logout</h2></a>
         @endif
     </div>
 </div>
