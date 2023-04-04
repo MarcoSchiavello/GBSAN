@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DiseaseController;
+use App\Http\Controllers\IllnessController;
+use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\VaccineController;
+use App\Http\Controllers\VillageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,16 +31,10 @@ Route::get('/logout', [ AuthController::class, 'logout']);
 
 Route::get('/patients', [ PatientController::class, 'patientList' ])->middleware('auth');
 
-Route::get('/add/patient', [ PatientController::class, 'patientForm' ])->middleware('auth');
-Route::post('/add/patient', [ PatientController::class, 'addPatient' ])->middleware('auth');
-
-Route::get('/add/village', function () {
-    return view('forms.village');
-})->middleware('auth');
-
 Route::get('/patient/1/add/disease', function () {
     return view('forms.patient.disease');
 })->middleware('auth');
+
 
 Route::get('/patient/1/add/ilness', function () {
     return view('forms.patient.ilness');
@@ -49,21 +48,24 @@ Route::get('/patient/1/add/prescription', function () {
     return view('forms.patient.prescription');
 })->middleware('auth');
 
-Route::get('/add/vaccine', function () {
-    return view('forms.vaccine');
-})->middleware('auth');
+Route::get('/add/patient', [ PatientController::class, 'patientForm' ])->middleware('auth');
+Route::post('/add/patient', [ PatientController::class, 'addPatient' ])->middleware('auth');
 
-Route::get('/add/ilness', function () {
-    return view('forms.ilness');
-})->middleware('auth');
+Route::get('/add/village', [ VillageController::class, 'form' ])->middleware('auth');
+Route::post('/add/village', [ VillageController::class, 'addVillage' ])->middleware('auth');
 
-Route::get('/add/disease', function () {
-    return view('forms.disease');
-})->middleware('auth');
+Route::get('/add/vaccine', [ VaccineController::class, 'form' ])->middleware('auth');
+Route::post('/add/vaccine', [ VaccineController::class, 'addVaccine' ])->middleware('auth');
 
-Route::get('/add/medicine', function () {
-    return view('forms.medicine');
-})->middleware('auth');
+Route::get('/add/ilness', [ IllnessController::class, 'form' ])->middleware('auth');
+Route::post('/add/ilness', [ IllnessController::class, 'addIllness' ])->middleware('auth');
+
+
+Route::get('/add/disease', [ DiseaseController::class, 'form' ])->middleware('auth');
+Route::post('/add/disease', [ DiseaseController::class, 'addDisease' ])->middleware('auth');
+
+Route::get('/add/medicine', [ MedicineController::class, 'form' ])->middleware('auth');
+Route::post('/add/medicine', [ MedicineController::class, 'addMedicine' ])->middleware('auth');
 
 Route::get('/patient/1', function () {
     return view('patient.template');

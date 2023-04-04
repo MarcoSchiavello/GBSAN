@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use function Termwind\render;
 
-class PatientController extends Controller
-{
+class PatientController extends Controller {
     function patientList() {
         return view('patients', [ 'patients' => Patient::all() ]);
     }
@@ -19,14 +18,14 @@ class PatientController extends Controller
     }
 
     function addPatient(Request $request) {
-        $request->validate([
+        /*$request->validate([
             'img' => 'required'
-        ]);
+        ]);*/
 
         $patient = new Patient;
         $patient->name = $request->name;
         $patient->surname = $request->surname;
-        $patient->img = $request->img;
+        $patient->img = '/';//$request->img;
         $patient->code = $request->code;
         $patient->cell = $request->cell;
         $patient->role = $request->role;

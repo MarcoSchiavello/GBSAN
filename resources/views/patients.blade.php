@@ -37,12 +37,11 @@
                 </div>
                 @foreach ($patients as $patient)
                     <div class="grid grid-cols-11 font-bold font-text-fnt ease-out duration-300 hover:bg-gray-400 cursor-pointer [&>:not(:last-child)]:border-r-2 [&>*]:px-2 [&>*]:py-1 [&>:not(:last-child)]:border-secondary-clr">
-                        <h1 class="col-span-3">{!! $patient->name . $patient->surname !!}Nominativo</h1>
-                        <h1 class="col-span-2">{!! $patient->birth_date !!}Data di nascita</h1>
-                        <h1>{!! $patient->birth_date !!}Eta</h1>
-                        <h1>{!! $patient->sex !!}Sesso</h1>
-                        <h1 class="col-span-2">{!! $patient->blood_type !!}Gruppo sanguigno</h1>
-                        <h1 class="col-span-2">{!! $patient->village->name !!}Villagio</h1>
+                        <h1 class="col-span-3">{!! $patient->name . $patient->surname !!}</h1>
+                        <h1 class="col-span-2">{!! $patient->birth_date !!}</h1>
+                        <h1>{!! $patient->sex !!}</h1>
+                        <h1 class="col-span-2">{!! $patient->blood_type !!}</h1>
+                        <h1 class="col-span-2">{!! $patient->village->name !!}</h1>
                     </div>
                 @endforeach
             </div>
