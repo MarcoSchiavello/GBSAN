@@ -1,5 +1,5 @@
 @props([
-    'auth' => false,
+    'auth' => Auth::check(),
     'logo' => true,
 ])
 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('surname', 50);
-            $table->text('img')->default('/deafault');
+            $table->text('img')->default('/images/default.png');
             $table->string('code', 100)->unique()->nullable();
             $table->string('cell', 20)->unique()->nullable();
             $table->string('role', 50)->nullable();

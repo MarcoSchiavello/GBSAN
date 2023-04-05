@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,5 +41,9 @@ class Patient extends Model
 
     public function village() {
         return $this->belongsTo(Village::class, 'id_village');
+    }
+
+    public function age() {
+        return Carbon::parse($this->attributes['birth_date'])->age;
     }
 }

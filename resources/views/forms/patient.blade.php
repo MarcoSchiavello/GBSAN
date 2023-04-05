@@ -5,11 +5,9 @@
 @section('form', '/add/patient')
 
 @section('content')
-    <input type="text" class="hidden">
-    <div class="absolute flex items-center justify-center w-48 h-48 p-10 text-center border-2 rounded-md left-11 top-1/4 border-primary-clr">
-        clic per aggiungere img
-        <input type="file" name="img">
-    </div>
+    <x-inputs.img name="img" class="absolute w-48 h-48 border-2 rounded-md left-11 top-1/4 border-primary-clr">
+        <p>clic per aggiungere img</p>
+    </x-inputs.img>
     <div class="flex justify-between w-full gap-3">
         <x-inputs.text size="sm" name="name" label="Nome *" />
         <x-inputs.text size="sm" name="surname" label="Cognome *" />

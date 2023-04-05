@@ -9,11 +9,13 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        @stack('js')
     </head>
     <body class="flex flex-col items-center justify-between gap-20">
         <x-partials.nav :auth="true" />
 
-        <form action="@yield('form')" method="POST" class="flex flex-col items-start justify-between w-2/3 gap-4">
+        <form action="@yield('form')" method="POST" class="flex flex-col items-start justify-between w-2/3 gap-4" enctype="multipart/form-data">
             @csrf
             <h1 class="m-auto text-3xl font-bold text-terziary-clr font-title-fnt">@yield('title')</h1>
             @yield('content')
