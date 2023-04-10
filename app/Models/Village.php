@@ -11,6 +11,6 @@ class Village extends Model
     public $timestamps = false;
 
     public function patients() {
-        return $this->hasMany(Patient::class);
+        return $this->hasMany(Patient::class, 'id_village');
     }
 }

@@ -1,6 +1,7 @@
 @props([
     'auth' => Auth::check(),
     'logo' => true,
+    'patient' => null
 ])
 
 <div class="flex flex-row items-center justify-between w-full py-3 px-11">
@@ -18,14 +19,14 @@
                         <a href="/add/vaccine"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Vaccino</h1></a>
                         <a href="/add/patient"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Paziente</h1></a>
                         <a href="/add/village"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Villaggio</h1></a>
-                        <a href="/add/ilness"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Disturbo</h1></a>
+                        <a href="/add/illness"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Disturbo</h1></a>
                         <a href="/add/disease"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Malattia</h1></a>
                         <a href="/add/medicine"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Farmaco</h1></a>
                     @else
-                        <a href="/patient/1/add/vaccination"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Vaccinazione</h1></a>
-                        <a href="/patient/1/add/ilness"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Disturbo</h1></a>
-                        <a href="/patient/1/add/disease"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Malattia</h1></a>
-                        <a href="/patient/1/add/prescription"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Prescrizione</h1></a>
+                        <a href="/patient/{!! $patient !!}/add/vaccination"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Vaccinazione</h1></a>
+                        <a href="/patient/{!! $patient !!}/add/illness"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Disturbo</h1></a>
+                        <a href="/patient/{!! $patient !!}/add/disease"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Malattia</h1></a>
+                        <a href="/patient/{!! $patient !!}/add/prescription"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Prescrizione</h1></a>
                     @endif
                 </div>
             </div>

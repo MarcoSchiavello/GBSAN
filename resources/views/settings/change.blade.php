@@ -3,10 +3,13 @@
 @section('content')
     <form action="/settings/change"  class="flex flex-col items-center w-full gap-6" method="POST">
         @csrf
-        <x-inputs.text size="sm" name="name" label="Nominativo" />
-        <x-inputs.text size="sm" name="birthDate" label="Data di nascita" />
-        <x-inputs.text size="sm" name="username" label="Username" />
-        <x-inputs.text size="sm" name="password" label="Password" />
+        <x-inputs.text size="sm" name="name" label="Nome" :value="$user->name" />
+        <x-inputs.text size="sm" name="surname" label="Cognome" :value="$user->surname" />
+        <x-inputs.text size="sm" name="birthDate" type="date" label="Data di nascita" :value="$user->birth_date" />
+        <x-inputs.text size="sm" name="email" type="email" label="E-mail" :value="$user->email" />
+        <x-inputs.select name="sex" label="Sesso" :values="[ 'Maschio' => 'M', 'Femmina' => 'F' ]" :init="$user->sex" />
+        <x-inputs.text size="sm" name="username" label="Username" :value="$user->username" />
+        <x-inputs.text size="sm" name="password" type="password" label="Password" />
         <x-controls.button type="button" text="Cambia dati" />
     </form>
 @endsection

@@ -11,6 +11,6 @@ class Document extends Model
     public $timestamps = false;
 
     public function prescription() {
-        return $this->belongsTo(Prescription::class);
+        return $this->belongsTo(Prescription::class, 'id_prescription');
     }
 }

@@ -15,10 +15,13 @@ return new class extends Migration
             $table->id();
             $table->text('prescription');
             $table->date('date');
-            $table->bigInteger('id_patient')
+            $table->unsignedBigInteger('id_patient')->index();
+            $table->unsignedBigInteger('id_user')->index();
+            $table->foreign('id_patient')
                   ->references('id')
-                  ->on('patients');
-            $table->bigInteger('id_user')
+                  ->on('patients')
+                  ->onDelete('cascade');
+            $table->foreign('id_user')
                   ->references('id')
                   ->on('users');
         });

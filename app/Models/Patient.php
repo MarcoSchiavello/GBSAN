@@ -16,23 +16,23 @@ class Patient extends Model
             Illness::class,
             'patients_illnesses',
             'id_patient',
-            'id_illness');
+            'id_illness')->withPivot('start_date', 'note', 'end_date');
     }
 
-    public function vaccines() {
+    public function vaccinations() {
         return $this->belongsToMany(
             Vaccine::class,
             'patients_vaccines',
             'id_patient',
-            'id_vaccine');
+            'id_vaccine')->withPivot('date', 'next_date', 'note');
     }
 
     public function diagnoses() {
-        return $this->hasMany(Diagnose::class);
+        return $this->hasMany(Diagnose::class, 'id_patient');
     }
 
     public function prescriptions() {
-        return $this->hasMany(Prescription::class);
+        return $this->hasMany(Prescription::class, 'id_patient');
     }
     
     public function user() {

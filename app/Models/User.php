@@ -12,15 +12,15 @@ class User extends Authenticatable
     public $timestamps = false;
 
     public function patients() {
-        return $this->hasMany(Patient::class);
+        return $this->hasMany(Patient::class, 'id_user');
     }
 
     public function prescription() {
-        return $this->hasMany(Prescription::class);
+        return $this->hasMany(Prescription::class, 'id_user');
     }
     
     public function diagnoses() {
-        return $this->hasMany(Diagnose::class);
+        return $this->hasMany(Diagnose::class, 'id_user');
     }
 
     public function illnesses() {
@@ -28,7 +28,7 @@ class User extends Authenticatable
             Illness::class,
             'patients_illnesses',
             'id_user',
-            'id_illness');
+            'id_illness')->withPivot('start_date', 'note', 'end_date');;
     }
 
 
@@ -37,6 +37,6 @@ class User extends Authenticatable
             Vaccine::class,
             'patients_vaccines',
             'id_user',
-            'id_vaccine');
+            'id_vaccine')->withPivot('date', 'next_date', 'note');
     }
 }

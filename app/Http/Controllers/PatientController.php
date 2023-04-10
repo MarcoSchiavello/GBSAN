@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Illness;
 use App\Models\Patient;
+use App\Models\User;
+use App\Models\Village;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Type\Integer;
 
 use function Termwind\render;
 
@@ -18,7 +23,18 @@ class PatientController extends Controller {
     }
 
     function patientForm() {
-        return view('forms.patient');
+        $villagesRaw = Village::all('id', 'name');
+        
+        $villages = array_combine(
+            $villagesRaw->map(function($value) {
+                return $value->name;
+            })->toArray(), 
+            $villagesRaw->map(function($value) {
+                return $value->id;
+            })->toArray()
+        );
+
+        return view('forms.patient', [ 'villages' => $villages]);
     }
 
     function addPatient(Request $request) {
@@ -48,18 +64,34 @@ class PatientController extends Controller {
         $patient->min_press = $request->minPres;
         $patient->max_press = $request->maxPres;
         $patient->id_village = $request->village;
-        $patient->id_user =  Auth::user()->id;
+        $patient->id_user = Auth::user()->id;
 
-        DB::transanction(function() use ($patient, $request) {
+        DB::transaction(function() use ($patient, $request)  {
             $patient->save();
 
             $fileExt = $request->file('img')->getClientOriginalExtension();
-            $destinationPath = 'public/images/profile/'. $patient->id . '.' . $fileExt;
+            $destinationPath = 'storage/images/profile/'. $patient->id . '.' . $fileExt;
             $request->file('img')->storeAs($destinationPath);
             $patient->img = $destinationPath;
             $patient->save();
         });
 
         return redirect('/patients');
+    }
+
+    function illnesses(int $patientId) {
+        return view('patient.illnesses', [ 'patient' => Patient::find($patientId) ]);
+    }
+
+    function vaccinations(int $patientId) {
+        return view('patient.vaccinations', [ 'patient' => Patient::find($patientId) ]);
+    }
+
+    function diseases(int $patientId) {
+        return view('patient.diseases', [ 'patient' => Patient::find($patientId) ]);
+    }
+
+    function prescriptions(int $patientId) {
+        return view('patient.prescriptions', [ 'patient' => Patient::find($patientId) ]);
     }
 }

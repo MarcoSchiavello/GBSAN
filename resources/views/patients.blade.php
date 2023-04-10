@@ -36,14 +36,16 @@
                     <h1 class="col-span-2">Villagio</h1>
                 </div>
                 @foreach ($patients as $patient)
-                    <div class="grid grid-cols-11 font-bold font-text-fnt ease-out duration-300 hover:bg-gray-400 cursor-pointer [&>:not(:last-child)]:border-r-2 [&>*]:px-2 [&>*]:py-1 [&>:not(:last-child)]:border-secondary-clr">
-                        <h1 class="col-span-3">{!! $patient->name . $patient->surname !!}</h1>
-                        <h1 class="col-span-2">{!! $patient->birth_date !!}</h1>
-                        <h1>{!! $patient->age() !!}</h1>
-                        <h1>{!! $patient->sex !!}</h1>
-                        <h1 class="col-span-2">{!! $patient->blood_type !!}</h1>
-                        <h1 class="col-span-2">{!! $patient->village->name !!}</h1>
-                    </div>
+                    <a href="patient/{!! $patient->id !!}/illnesses">
+                        <div class="grid grid-cols-11 font-bold font-text-fnt ease-out duration-300 hover:bg-gray-400 cursor-pointer [&>:not(:last-child)]:border-r-2 [&>*]:px-2 [&>*]:py-1 [&>:not(:last-child)]:border-secondary-clr">
+                            <h1 class="col-span-3">{!! $patient->name . ' ' . $patient->surname !!}</h1>
+                            <h1 class="col-span-2">{!! (new DateTime($patient->birth_date))->format('d/m/Y') !!}</h1>
+                            <h1>{!! $patient->age() !!}</h1>
+                            <h1>{!! $patient->sex === 'M' ? 'Maschio' : 'Femmina' !!}</h1>
+                            <h1 class="col-span-2">{!! $patient->blood_type !!}</h1>
+                            <h1 class="col-span-2">{!! $patient->village->name !!}</h1>
+                        </div>
+                    </a>
                 @endforeach
             </div>
         </main>

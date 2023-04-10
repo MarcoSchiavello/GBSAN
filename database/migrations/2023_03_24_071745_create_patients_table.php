@@ -32,10 +32,12 @@ return new class extends Migration
             $table->integer('card_freq')->nullable();
             $table->integer('min_press')->nullable();
             $table->integer('max_press')->nullable();
-            $table->bigInteger('id_village')
+            $table->unsignedBigInteger('id_village')->index();
+            $table->unsignedBigInteger('id_user')->index();
+            $table->foreign('id_village')
                   ->references('id')
                   ->on('villages');
-            $table->bigInteger('id_user')
+            $table->foreign('id_user')
                   ->references('id')
                   ->on('users');
         });

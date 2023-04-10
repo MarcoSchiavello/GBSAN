@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Diagnose;
 use App\Models\Disease;
+use App\Models\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DiseaseController extends Controller {
     function form() {
@@ -17,5 +21,45 @@ class DiseaseController extends Controller {
         $newDisease->save();
 
         return redirect('/patients');
+    }
+
+    function patientDisease(int $patientId) {
+        $diseasesRaw = Disease::all('id', 'name');
+
+        $diseases = array_combine(
+            $diseasesRaw->map(function($value) {
+                return $value->name;
+            })->toArray(), 
+            $diseasesRaw->map(function($value) {
+                return $value->id;
+            })->toArray()
+        );
+
+        return view('forms.patient.disease', [ 'patient' => Patient::find($patientId), 'diseases' => $diseases ]);
+    }
+
+    function addToPatient(Request $request, int $patientId) {
+        $diagnose = new Diagnose;
+        $diagnose->id_disease = $request->disease;
+        $diagnose->id_patient = $patientId;
+        $diagnose->id_user = Auth::user()->id;
+        $diagnose->start_date = $request->date;
+        $diagnose->note = $request->note;
+
+        DB::transaction(function() use ($diagnose, $request)  {
+            $diagnose->save();
+
+            for($i = 0; $i < count($request->medicine); $i++) {
+                Diagnose::find($diagnose->id)->medicines()->attach($request->medicine[$i], [
+                    'start_date' => $request->startDate[$i],
+                    'end_date' => $request->endDate[$i],
+                    'when' => $request->when[$i],
+                    'quantity' => $request->dosage[$i]
+                ]);
+            }
+        });
+
+
+        return redirect("/patient/$patientId/diseases");
     }
 }

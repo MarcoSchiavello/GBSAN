@@ -11,7 +11,7 @@ class Prescription extends Model
     public $timestamps = false;
 
     public function documents() {
-        return $this->hasMany(Document::class);
+        return $this->hasMany(Document::class, 'id_prescription');
     }
 
     public function patient() {
@@ -27,6 +27,6 @@ class Prescription extends Model
             Medicine::class,
             'prescriptions_medicines',
             'id_prescription',
-            'id_medicine');
+            'id_medicine')->withPivot('start_date', 'when', 'end_date', 'quantity');
     }
 }

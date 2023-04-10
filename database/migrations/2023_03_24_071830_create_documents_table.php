@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->text('document');
             $table->date('date');
-            $table->bigInteger('id_presciption')
+            $table->unsignedBigInteger('id_presciption')->index();
+            $table->foreign('id_presciption')
                   ->references('id')
-                  ->on('presciptions');
+                  ->on('prescriptions')
+                  ->onDelete('cascade');
         });
     }
 

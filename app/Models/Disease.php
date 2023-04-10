@@ -9,8 +9,9 @@ class Disease extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    public $incrementing = false;
     
     public function diagnoses() {
-        return $this->hasMany(Diagnose::class);
+        return $this->hasMany(Diagnose::class, 'id_diagnose');
     }
 }

@@ -9,13 +9,14 @@ class Medicine extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    public $incrementing = false;
 
     public function diagnoses() {
         return $this->belongsToMany(
             Diagnose::class,
             'diagnoses_medicines',
             'id_medicine',
-            'id_diagnose');
+            'id_diagnose')->withPivot('start_date', 'when', 'end_date', 'quantity');
     }
 
     public function prescriptions() {
@@ -23,6 +24,6 @@ class Medicine extends Model
             Prescription::class,
             'prescriptions_medicines',
             'id_medicine',
-            'id_prescriprion');
+            'id_prescriprion')->withPivot('start_date', 'when', 'end_date', 'quantity');
     }
 }

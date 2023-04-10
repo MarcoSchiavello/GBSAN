@@ -15,11 +15,11 @@ class Diagnose extends Model
     }
 
     public function disease() {
-        return $this->belongsTo(Disease::class);
+        return $this->belongsTo(Disease::class, 'id_disease');
     }
 
     public function user() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function medicines() {
@@ -27,7 +27,7 @@ class Diagnose extends Model
             Medicine::class,
             'diagnoses_medicines',
             'id_diagnose',
-            'id_medicine');
+            'id_medicine')->withPivot('start_date', 'when', 'end_date', 'quantity');
     }
 
 }

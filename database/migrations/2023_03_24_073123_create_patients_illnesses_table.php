@@ -16,15 +16,20 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->text('note')->nullable();
-            $table->bigInteger('id_patient')
+            $table->unsignedBigInteger('id_patient')->index();
+            $table->unsignedBigInteger('id_user')->index();
+            $table->string('id_illness', 50)->index();
+            $table->foreign('id_patient')
                   ->references('id')
-                  ->on('patients');
-            $table->bigInteger('id_user')
+                  ->on('patients')
+                  ->onDelete('cascade');
+            $table->foreign('id_user')
                   ->references('id')
                   ->on('users');
-            $table->string('id_illness', 50)
+            $table->foreign('id_illness')
                   ->references('id')
-                  ->on('illnesses');
+                  ->on('illnesses')
+                  ->onDelete('cascade');
         });
     }
 

@@ -17,12 +17,16 @@ return new class extends Migration
             $table->date('end_date');
             $table->integer('quantity');
             $table->string('when', 10);
-            $table->bigInteger('id_diagnose')
+            $table->unsignedBigInteger('id_prescription')->index();
+            $table->string('id_medicine', 50)->index();
+            $table->foreign('id_prescription')
                   ->references('id')
-                  ->on('diagnoses');
-            $table->bigInteger('id_prescription')
+                  ->on('prescriptions')
+                  ->onDelete('cascade');
+            $table->foreign('id_medicine')
                   ->references('id')
-                  ->on('prescriptions');
+                  ->on('medicines')
+                  ->onDelete('cascade');
         });
     }
 
