@@ -5,9 +5,15 @@
 ])
 
 <div class="flex flex-row items-center justify-between w-full py-3 px-11">
-    <a href="{{ !$auth ?  '/' : '/patients' }}"><img src="{{ asset('imgs/logo.png') }}" alt="logo" @class(['w-20', 'opacity-0' => !$logo])></a>
+    <div class="flex items-center h-full gap-4">
+        <a href="{{ !$auth ?  '/' : '/patients' }}"><img src="{{ asset('imgs/logo.png') }}" alt="logo" @class(['w-20', 'opacity-0' => !$logo])></a>
+        <hr @class(['w-[2px]', 'h-10', 'bg-secondary-clr', 'opacity-0' => !$logo])>
+        <a href=""><img @class(['h-20', 'opacity-0' => !$logo]) src="{{ asset('imgs/onlus.png') }}" alt="onlus"></a>
+        <a href=""><img @class(['h-20', 'opacity-0' => !$logo]) src="{{ asset('imgs/avogadro.png') }}" alt="avogadro"></a>
+        <a href=""><img @class(['h-20', 'opacity-0' => !$logo]) src="{{ asset('imgs/abalite.png') }}" alt="abalite"></a>
+    </div>
 
-    <div class="flex flex-row justify-between gap-4 text-xl font-bold text-secondary-clr">
+    <div class="flex justify-between gap-4 text-xl font-bold text-secondary-clr">
         @if (!$auth)
             <a href="/login"><h2 class="duration-500 ease-in-out cursor-pointer hover:text-terziary-clr transirion">Login</h2></a>
         @else

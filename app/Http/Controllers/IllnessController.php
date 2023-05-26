@@ -45,4 +45,26 @@ class IllnessController extends Controller {
 
         return redirect("/patient/$patientId/illnesses");
     }
+
+    function illnesses() {
+        return view('settings.backoffice.illnesses', [ 'illnesses' => Illness::all()]);
+    }
+
+    function updateIllness(Request $request, string $illnessId) {
+        $illness = Illness::find($illnessId);
+        $illness->name = $request->name;
+        $illness->id = $request->id;
+        $illness->save();
+
+        return redirect('/view/illnesses');
+    }
+
+    function updateIllnessForm(string $illnessId) {
+        return view('forms.illness', [ 'illness' => Illness::find($illnessId) ]);
+    }
+
+    function deleteIllness(string $illnessId) {
+        (Illness::find($illnessId))->delete();
+        return redirect('/view/illnesses');
+    }
 }

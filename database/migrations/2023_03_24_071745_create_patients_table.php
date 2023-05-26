@@ -36,10 +36,12 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user')->index();
             $table->foreign('id_village')
                   ->references('id')
-                  ->on('villages');
+                  ->on('villages')
+                  ->onUpdate('cascade');
             $table->foreign('id_user')
                   ->references('id')
-                  ->on('users');
+                  ->on('users')
+                  ->onUpdate('cascade');
         });
     }
 

@@ -2,7 +2,10 @@
 
 @section('list')
     @foreach($patient->vaccinations as $vaccination)
-        <x-partials.patientCard>
+        <x-partials.patientCard delete="/patient/{{ $patient->id }}/delete/vaccination/{{ $vaccination->pivot->id }}"
+                                :user="$vaccination->users()->wherePivot('id', '=', $vaccination->pivot->id)->first()->username"
+                                put="/patient/{{ $patient->id }}/update/vaccination/{{ $vaccination->pivot->id }}"
+                                print="/patient/{{ $patient->id }}/print/vaccination/{{ $vaccination->pivot->id }}">
             <div class="flex items-baseline gap-4">
                 <h1 class="text-3xl font-bold text-terziary-clr font-title-fnt">{!! $vaccination->name !!}</h1>
                 <h3 class="text-lg font-bold text-primary-clr font-subtitle-fnt">{!! $vaccination->id !!}</h3>

@@ -49,17 +49,41 @@ class DiseaseController extends Controller {
         DB::transaction(function() use ($diagnose, $request)  {
             $diagnose->save();
 
-            for($i = 0; $i < count($request->medicine); $i++) {
-                Diagnose::find($diagnose->id)->medicines()->attach($request->medicine[$i], [
-                    'start_date' => $request->startDate[$i],
-                    'end_date' => $request->endDate[$i],
-                    'when' => $request->when[$i],
-                    'quantity' => $request->dosage[$i]
-                ]);
+            if($request->medicine !== null) {
+                for($i = 0; $i < count($request->medicine); $i++) {
+                    Diagnose::find($diagnose->id)->medicines()->attach($request->medicine[$i], [
+                        'start_date' => $request->startDate[$i],
+                        'end_date' => $request->endDate[$i],
+                        'when' => $request->when[$i],
+                        'quantity' => $request->dosage[$i]
+                    ]);
+                }
             }
         });
 
 
         return redirect("/patient/$patientId/diseases");
+    }
+
+    function diseases() {
+        return view('settings.backoffice.diseases', [ 'diseases' => Disease::all()]);
+    }
+
+    function updateDisease(Request $request, string $diseaseId) {
+        $disease = Disease::find($diseaseId);
+        $disease->name = $request->name;
+        $disease->id = $request->id;
+        $disease->save();
+
+        return redirect('/view/diseases');
+    }
+
+    function updateDiseaseForm(string $diseaseId) {
+        return view('forms.disease', [ 'disease' => Disease::find($diseaseId) ]);
+    }
+
+    function deleteDisease(string $diseaseId) {
+        (Disease::find($diseaseId))->delete();
+        return redirect('/view/diseases');
     }
 }

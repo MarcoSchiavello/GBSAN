@@ -1,5 +1,6 @@
 @push('js')
     <script src="{{ asset('js/medicineComp.js') }}" type="module"></script>
+    <script src="{{ asset('js/timespan.js') }}" type="module"></script>
 @endpush
 
 <div class="flex flex-col items-center w-full gap-4">
@@ -8,17 +9,35 @@
     @endif
     
     <div medicine-list class="flex flex-col w-full">
-        <div template class="hidden py-5 border-b-2 border-primary-clr">
+        <div template class="relative hidden py-8 border-b-2 border-primary-clr">
+            <x-ri-close-fill close class="absolute right-0 w-8 top-2 fill-primary-clr" />
+
             <div class="flex w-full gap-4">
                 <x-inputs.select name="medicine[]" label="Farmaco *" :values="$medicines" />
                 <x-inputs.text size="sm" name="dosage[]" label="Doaggio *" type="number" />
             </div>
             <div class="flex w-full gap-4">
-                <x-inputs.text size="sm" name="when[]" label="Quando *" />
+                <x-inputs.text size="sm" type="time" name="when[]" label="Quando *" />
                 <x-inputs.text size="sm" type="date" name="startDate[]" label="Data inizio *" />
                 <x-inputs.text size="sm" type="date" name="endDate[]" label="Data fine *" />
             </div>
         </div>
+
+        @foreach($medicinesUsed as $medicine) 
+            <div class="relative py-8 border-b-2 border-primary-clr">
+                <x-ri-close-fill close class="absolute right-0 w-8 top-2 fill-primary-clr" />
+
+                <div class="flex w-full gap-4">
+                    <x-inputs.select name="medicine[]" label="Farmaco *" :values="$medicines" :init="$medicine->id" />
+                    <x-inputs.text size="sm" name="dosage[]" label="Doaggio *" min="1" type="number" :value="$medicine->pivot->quantity" />
+                </div>
+                <div class="flex w-full gap-4">
+                    <x-inputs.text size="sm" type="time" name="when[]"  label="Quando *" :value="$medicine->pivot->when" />
+                    <x-inputs.text size="sm" type="date" name="startDate[]" label="Data inizio *" :value="$medicine->pivot->start_date" />
+                    <x-inputs.text size="sm" type="date" name="endDate[]" label="Data fine *" :value="$medicine->pivot->end_date" />
+                </div>
+            </div>
+        @endforeach
     </div>
     
 

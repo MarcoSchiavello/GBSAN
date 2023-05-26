@@ -19,4 +19,26 @@ class MedicineController extends Controller {
 
         return redirect('/patients');
     }
+
+    function medicines() {
+        return view('settings.backoffice.medicines', [ 'medicines' => Medicine::all()]);
+    }
+
+    function updateMedicine(Request $request, string $medicineId) {
+        $medicine = Medicine::find($medicineId);
+        $medicine->name = $request->name;
+        $medicine->id = $request->id;
+        $medicine->save();
+
+        return redirect('/view/medicines');
+    }
+
+    function updateMedicineForm(string $medicineId) {
+        return view('forms.medicine', [ 'medicine' => Medicine::find($medicineId) ]);
+    }
+
+    function deleteMedicine(string $medicineId) {
+        (Medicine::find($medicineId))->delete();
+        return redirect('/view/medicines');
+    }
 }

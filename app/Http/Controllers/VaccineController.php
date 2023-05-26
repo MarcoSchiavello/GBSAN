@@ -47,4 +47,26 @@ class VaccineController extends Controller {
 
         return redirect("/patient/$patientId/vaccinations");
     }
+
+    function vaccines() {
+        return view('settings.backoffice.vaccines', [ 'vaccines' => Vaccine::all()]);
+    }
+
+    function updateVaccine(Request $request, string $vaccineId) {
+        $vaccine = Vaccine::find($vaccineId);
+        $vaccine->name = $request->name;
+        $vaccine->id = $request->id;
+        $vaccine->save();
+
+        return redirect('/view/vaccines');
+    }
+
+    function updateVaccineForm(string $vaccineId) {
+        return view('forms.vaccine', [ 'vaccine' => Vaccine::find($vaccineId) ]);
+    }
+
+    function deleteVaccine(string $vaccineId) {
+        (Vaccine::find($vaccineId))->delete();
+        return redirect('/view/vaccines');
+    }
 }

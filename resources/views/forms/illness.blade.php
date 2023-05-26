@@ -1,10 +1,10 @@
 @extends('forms.template')
 
-@section('title', 'Aggiungi disturbo')
+@section('title', (isset($illness) ? 'Cambia' : 'Aggiungi') . ' disturbo')
 
-@section('form', '/add/illness')
+@section('form', isset($illness) ? '/update/illness/' . $illness->id : '/add/illness')
 
 @section('content')
-    <x-inputs.text size="sm" name="name" label="Nome disturbo *" />
-    <x-inputs.text size="sm" name="id" label="Codice*" />
+    <x-inputs.text size="sm" name="name" label="Nome disturbo *" :value="$illness->name ?? ''" />
+    <x-inputs.text size="sm" name="id" label="Codice*" :value="$illness->id ?? ''" />
 @endsection

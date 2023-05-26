@@ -1,6 +1,8 @@
 @props([
     'name' => 'img',
-    'class' => ''
+    'class' => '',
+    'value' => '',
+    'init' => ''
 ])
 
 @push('js')
@@ -10,7 +12,7 @@
 <div fakeUpload="{!! $name !!}" class="cursor-pointer {!! $class !!}">
     <input type="file" accept="image/*" name="{!! $name !!}" realUpload="{!! $name !!}" class="hidden">
     <div class="flex items-center justify-center w-full h-full text-center">
-        <img src="#" preview="{!! $name !!}" alt="preview" class="absolute hidden object-fill w-full">
+        <img preview="{!! $name !!}" alt="preview" class="absolute hidden object-cover w-full h-full" src="#" init="{!! $init !!}">
         {{ $slot }}
     </div>
 </div>

@@ -16,7 +16,7 @@ class Illness extends Model
             Patient::class,
             'patients_illnesses',
             'id_illness',
-            'id_patient')->withPivot('start_date', 'note', 'end_date');
+            'id_patient')->withPivot('id', 'start_date', 'note', 'end_date');
     }
 
     public function users() {
@@ -24,6 +24,6 @@ class Illness extends Model
             User::class,
             'patients_illnesses',
             'id_illness',
-            'id_user')->withPivot('start_date', 'note', 'end_date');
+            'id_user')->withPivot('id', 'start_date', 'note', 'end_date');
     }
 }

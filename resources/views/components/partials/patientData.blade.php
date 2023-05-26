@@ -4,12 +4,12 @@
 
 <div class="flex justify-between">
     <div class="flex items-baseline gap-3">
-        <img class="w-16 h-16" src="{{ asset($patient->img) }}">
+        <img class="object-cover w-16 h-16" src="{{ asset($patient->img) }}">
         <h1 class="text-5xl font-bold text-terziary-clr font-title-fnt">{!! $patient->name . ' ' . $patient->surname !!}</h1>
     </div>
     <div class="flex gap-3">
-        <x-controls.button type="button" :fit="true" ><x-ri-pencil-line class="w-14 fill-bg-clr" /></x-controls.button>
-        <x-controls.button type="button" :fit="true" ><x-ri-delete-bin-5-line class="w-14 fill-bg-clr" /></x-controls.button>
+        <x-controls.button type="a" action="/update/patient/{!! $patient->id !!}" :fit="true" ><x-ri-pencil-line class="w-14 fill-bg-clr" /></x-controls.button>
+        <x-controls.button type="button" :attr="[ 'delete' => '/delete/patient/' . $patient->id, 'token' => csrf_token() ]" :fit="true" ><x-ri-delete-bin-5-line class="w-14 fill-bg-clr" /></x-controls.button>
     </div>
 </div>
 

@@ -4,9 +4,14 @@
     'type' => 'a',
     'class' => '',
     'fit' => false,
-    'color' => 'primary'
+    'color' => 'primary',
+    'attr' => [],
+    'realBtn' => false
 ])
 
-<{{ $type }} class=" font-bold border-none rounded-md outline-none bg-primary-clr h-max {{ !$fit ? 'px-7 py-2' : 'p-1'  }} bg-{{ $color }}-clr text-bg-clr {{ $class }} font-subtitle-fnt flex items-center justify-center" href="{{ $action }}">
+<{{ $type }} {{ $realBtn ? 'type=button' : '' }} {{ implode(' ', array_map(
+    function ($k, $v) { return $k .'='. $v .''; },
+    array_keys($attr), $attr
+)) }} class=" font-bold border-none rounded-md outline-none bg-primary-clr h-max {{ !$fit ? 'px-7 py-2' : 'p-1'  }} text-bg-clr {{ $class }} font-subtitle-fnt flex items-center justify-center" href="{{ $action }}">
     {!! $slot->isNotEmpty() ? $slot : $text !!}
 </{{ $type }}>

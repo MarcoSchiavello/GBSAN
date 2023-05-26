@@ -28,7 +28,7 @@ class User extends Authenticatable
             Illness::class,
             'patients_illnesses',
             'id_user',
-            'id_illness')->withPivot('start_date', 'note', 'end_date');;
+            'id_illness')->withPivot('id','start_date', 'note', 'end_date');;
     }
 
 
@@ -37,6 +37,6 @@ class User extends Authenticatable
             Vaccine::class,
             'patients_vaccines',
             'id_user',
-            'id_vaccine')->withPivot('date', 'next_date', 'note');
+            'id_vaccine')->withPivot('id','date', 'next_date', 'note');
     }
 }

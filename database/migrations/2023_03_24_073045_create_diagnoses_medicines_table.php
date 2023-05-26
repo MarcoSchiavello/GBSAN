@@ -16,17 +16,19 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('quantity');
-            $table->string('when', 10);
+            $table->string('when', 30);
             $table->unsignedBigInteger('id_diagnose')->index();
             $table->string('id_medicine', 50)->index();
             $table->foreign('id_diagnose')
                   ->references('id')
                   ->on('diagnoses')
-                  ->onDelete('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
             $table->foreign('id_medicine')
                   ->references('id')
                   ->on('medicines')
-                  ->onDelete('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

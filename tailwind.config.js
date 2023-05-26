@@ -13,6 +13,7 @@ module.exports = {
         "terziary-clr": "var(--clr-terziary)",
         "text-clr": "var(--clr-text)",        
         "bg-clr": "var(--clr-bg)",
+        "err-clr": "var(--clr-err)",
       },
       fontFamily: {
         "title-fnt": "var(--fnt-title)",

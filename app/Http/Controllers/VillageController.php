@@ -18,4 +18,26 @@ class VillageController extends Controller {
 
         return redirect('/patients');
     }
+
+    function villages() {
+        return view('settings.backoffice.villages', [ 'villages' => Village::all()]);
+    }
+
+    function updateVillage(Request $request, int $villageId) {
+        $village = Village::find($villageId);
+        $village->name = $request->name;
+        $village->id = $request->id;
+        $village->save();
+
+        return redirect('/view/villages');
+    }
+
+    function updateVillageForm(int $villageId) {
+        return view('forms.village', [ 'village' => Village::find($villageId) ]);
+    }
+
+    function deleteVillage(int $villageId) {
+        (Village::find($villageId))->delete();
+        return redirect('/view/villages');
+    }
 }

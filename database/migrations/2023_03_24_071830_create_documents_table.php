@@ -19,7 +19,8 @@ return new class extends Migration
             $table->foreign('id_presciption')
                   ->references('id')
                   ->on('prescriptions')
-                  ->onDelete('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

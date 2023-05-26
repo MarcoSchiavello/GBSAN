@@ -16,7 +16,7 @@ class Vaccine extends Model
             Patient::class,
             'patients_vaccines',
             'id_vaccine',
-            'id_patient')->withPivot('date', 'next_date', 'note');
+            'id_patient')->withPivot('id', 'date', 'next_date', 'note');
     }
 
     public function users() {
@@ -24,6 +24,6 @@ class Vaccine extends Model
             User::class,
             'patients_vaccines',
             'id_vaccine',
-            'id_user')->withPivot('date', 'next_date', 'note');
+            'id_user')->withPivot('id', 'date', 'next_date', 'note');
     }
 }

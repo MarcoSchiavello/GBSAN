@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Partials;
 
+use App\Models\Diagnose;
 use App\Models\Medicine;
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -9,12 +10,14 @@ use Illuminate\View\Component;
 
 class MedicineComp extends Component {
     public $title;
-
+    public $medicinesUsed;
+    
     /**
      * Create a new component instance.
      */
-    public function __construct($title = true) {
+    public function __construct(bool $title = true, $medicinesUsed = null) {
         $this->title = $title;
+        $this->medicinesUsed = $medicinesUsed;
     }
 
     /**
@@ -32,6 +35,6 @@ class MedicineComp extends Component {
             })->toArray()
         );
 
-        return view('components.partials.medicine-comp', [ 'medicines' => $medicines ]);
+        return view('components.partials.medicine-comp', [ 'medicines' => $medicines, 'medicinesUsed' => $this->medicinesUsed ?? [] ]);
     }
 }

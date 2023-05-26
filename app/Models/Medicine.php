@@ -16,7 +16,7 @@ class Medicine extends Model
             Diagnose::class,
             'diagnoses_medicines',
             'id_medicine',
-            'id_diagnose')->withPivot('start_date', 'when', 'end_date', 'quantity');
+            'id_diagnose')->withPivot('id', 'start_date', 'when', 'end_date', 'quantity');
     }
 
     public function prescriptions() {
@@ -24,6 +24,6 @@ class Medicine extends Model
             Prescription::class,
             'prescriptions_medicines',
             'id_medicine',
-            'id_prescriprion')->withPivot('start_date', 'when', 'end_date', 'quantity');
+            'id_prescriprion')->withPivot('id', 'start_date', 'when', 'end_date', 'quantity');
     }
 }

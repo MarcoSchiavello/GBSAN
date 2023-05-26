@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Catamaran&family=Fira+Sans&family=Quattrocento+Sans&display=swap);
 /*
-! tailwindcss v3.2.7 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.1 | MIT License | https://tailwindcss.com
 */
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -24,6 +24,7 @@
 3. Use a more readable tab size.
 4. Use the user's configured `sans` font-family by default.
 5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
 */
 html {
   line-height: 1.5; /* 1 */
@@ -33,6 +34,7 @@ html {
      tab-size: 4; /* 3 */
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
   font-feature-settings: normal; /* 5 */
+  font-variation-settings: normal; /* 6 */
 }
 /*
 1. Remove the margin in all browsers.
@@ -402,6 +404,15 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.visible{
+  visibility: visible;
+}
+.collapse{
+  visibility: collapse;
+}
+.fixed{
+  position: fixed;
+}
 .absolute{
   position: absolute;
 }
@@ -414,20 +425,32 @@ video {
 .left-11{
   left: 2.75rem;
 }
+.right-0{
+  right: 0px;
+}
 .right-2{
   right: 0.5rem;
 }
 .right-20{
   right: 5rem;
 }
+.right-4{
+  right: 1rem;
+}
 .top-0{
   top: 0px;
+}
+.top-1{
+  top: 0.25rem;
 }
 .top-1\/4{
   top: 25%;
 }
 .top-2{
   top: 0.5rem;
+}
+.top-4{
+  top: 1rem;
 }
 .top-5{
   top: 1.25rem;
@@ -444,11 +467,25 @@ video {
 .m-auto{
   margin: auto;
 }
+.mx-6{
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+.my-10{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
 .mb-10{
   margin-bottom: 2.5rem;
 }
+.mb-16{
+  margin-bottom: 4rem;
+}
 .mb-2{
   margin-bottom: 0.5rem;
+}
+.mb-36{
+  margin-bottom: 9rem;
 }
 .mb-6{
   margin-bottom: 1.5rem;
@@ -459,26 +496,50 @@ video {
 .mt-3{
   margin-top: 0.75rem;
 }
+.mt-8{
+  margin-top: 2rem;
+}
 .box-border{
   box-sizing: border-box;
+}
+.block{
+  display: block;
 }
 .flex{
   display: flex;
 }
+.table{
+  display: table;
+}
 .grid{
   display: grid;
+}
+.contents{
+  display: contents;
 }
 .hidden{
   display: none;
 }
+.h-10{
+  height: 2.5rem;
+}
+.h-12{
+  height: 3rem;
+}
 .h-16{
   height: 4rem;
+}
+.h-20{
+  height: 5rem;
 }
 .h-32{
   height: 8rem;
 }
 .h-48{
   height: 12rem;
+}
+.h-6{
+  height: 1.5rem;
 }
 .h-80{
   height: 20rem;
@@ -499,6 +560,15 @@ video {
 .min-h-\[15rem\]{
   min-height: 15rem;
 }
+.min-h-screen{
+  min-height: 100vh;
+}
+.w-0{
+  width: 0px;
+}
+.w-1{
+  width: 0.25rem;
+}
 .w-1\/2{
   width: 50%;
 }
@@ -511,11 +581,17 @@ video {
 .w-10\/12{
   width: 83.333333%;
 }
+.w-12{
+  width: 3rem;
+}
 .w-14{
   width: 3.5rem;
 }
 .w-16{
   width: 4rem;
+}
+.w-2{
+  width: 0.5rem;
 }
 .w-2\/3{
   width: 66.666667%;
@@ -523,8 +599,14 @@ video {
 .w-20{
   width: 5rem;
 }
+.w-24{
+  width: 6rem;
+}
 .w-32{
   width: 8rem;
+}
+.w-4{
+  width: 1rem;
 }
 .w-4\/5{
   width: 80%;
@@ -535,6 +617,9 @@ video {
 .w-48{
   width: 12rem;
 }
+.w-5{
+  width: 1.25rem;
+}
 .w-5\/6{
   width: 83.333333%;
 }
@@ -544,14 +629,35 @@ video {
 .w-7{
   width: 1.75rem;
 }
+.w-8{
+  width: 2rem;
+}
 .w-80{
   width: 20rem;
+}
+.w-9{
+  width: 2.25rem;
+}
+.w-9\/12{
+  width: 75%;
+}
+.w-96{
+  width: 24rem;
+}
+.w-\[2px\]{
+  width: 2px;
 }
 .w-full{
   width: 100%;
 }
+.max-w-lg{
+  max-width: 32rem;
+}
 .max-w-xs{
   max-width: 20rem;
+}
+.border-collapse{
+  border-collapse: collapse;
 }
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -561,6 +667,9 @@ video {
 }
 .resize-none{
   resize: none;
+}
+.resize{
+  resize: both;
 }
 .grid-flow-row-dense{
   grid-auto-flow: row dense;
@@ -580,6 +689,12 @@ video {
 .flex-col{
   flex-direction: column;
 }
+.flex-wrap{
+  flex-wrap: wrap;
+}
+.place-items-center{
+  place-items: center;
+}
 .items-start{
   align-items: flex-start;
 }
@@ -589,6 +704,9 @@ video {
 .items-baseline{
   align-items: baseline;
 }
+.justify-start{
+  justify-content: flex-start;
+}
 .justify-end{
   justify-content: flex-end;
 }
@@ -597,6 +715,9 @@ video {
 }
 .justify-between{
   justify-content: space-between;
+}
+.justify-evenly{
+  justify-content: space-evenly;
 }
 .justify-items-center{
   justify-items: center;
@@ -622,8 +743,14 @@ video {
 .gap-4{
   gap: 1rem;
 }
+.gap-5{
+  gap: 1.25rem;
+}
 .gap-6{
   gap: 1.5rem;
+}
+.gap-7{
+  gap: 1.75rem;
 }
 .gap-8{
   gap: 2rem;
@@ -668,6 +795,10 @@ video {
 .border-none{
   border-style: none;
 }
+.border-black{
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
 .border-primary-clr{
   border-color: var(--clr-primary);
 }
@@ -687,9 +818,15 @@ video {
 .bg-secondary-clr{
   background-color: var(--clr-secondary);
 }
+.bg-transparent{
+  background-color: transparent;
+}
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-err-clr{
+  background-color: var(--clr-err);
 }
 .bg-opacity-75{
   --tw-bg-opacity: 0.75;
@@ -697,15 +834,21 @@ video {
 .fill-bg-clr{
   fill: var(--clr-bg);
 }
+.fill-primary-clr{
+  fill: var(--clr-primary);
+}
 .fill-secondary-clr{
   fill: var(--clr-secondary);
 }
 .fill-text-clr{
   fill: var(--clr-text);
 }
-.object-fill{
-  -o-object-fit: fill;
-     object-fit: fill;
+.stroke-primary-clr{
+  stroke: var(--clr-primary);
+}
+.object-cover{
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .p-1{
   padding: 0.25rem;
@@ -713,15 +856,22 @@ video {
 .p-10{
   padding: 2.5rem;
 }
+.p-16{
+  padding: 4rem;
+}
 .p-2{
   padding: 0.5rem;
 }
-.p-7{
-  padding: 1.75rem;
+.p-6{
+  padding: 1.5rem;
 }
 .px-11{
   padding-left: 2.75rem;
   padding-right: 2.75rem;
+}
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .px-3{
   padding-left: 0.75rem;
@@ -739,6 +889,14 @@ video {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
 }
+.py-1{
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+.py-10{
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 .py-2{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -747,16 +905,18 @@ video {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
-.py-5{
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
 .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.pb-24{
+  padding-bottom: 6rem;
+}
 .pl-9{
   padding-left: 2.25rem;
+}
+.pr-2{
+  padding-right: 0.5rem;
 }
 .pr-5{
   padding-right: 1.25rem;
@@ -769,6 +929,9 @@ video {
 }
 .text-justify{
   text-align: justify;
+}
+.align-top{
+  vertical-align: top;
 }
 .align-middle{
   vertical-align: middle;
@@ -790,9 +953,19 @@ video {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
 .text-5xl{
   font-size: 3rem;
   line-height: 1;
+}
+.text-\[1\.2rem\]{
+  font-size: 1.2rem;
+}
+.text-\[1\.3rem\]{
+  font-size: 1.3rem;
 }
 .text-lg{
   font-size: 1.125rem;
@@ -806,17 +979,14 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.text-\[0\.9rem\]{
-  font-size: 0.9rem;
-}
-.text-\[1\.3rem\]{
-  font-size: 1.3rem;
-}
-.text-\[1\.2rem\]{
-  font-size: 1.2rem;
-}
 .font-bold{
   font-weight: 700;
+}
+.font-extrabold{
+  font-weight: 800;
+}
+.font-semibold{
+  font-weight: 600;
 }
 .text-bg-clr{
   color: var(--clr-bg);
@@ -830,8 +1000,14 @@ video {
 .text-terziary-clr{
   color: var(--clr-terziary);
 }
-.text-\[\]{
-  color: ;
+.text-text-clr{
+  color: var(--clr-text);
+}
+.text-err-clr{
+  color: var(--clr-err);
+}
+.underline{
+  text-decoration-line: underline;
 }
 .opacity-0{
   opacity: 0;
@@ -839,6 +1015,17 @@ video {
 .outline-none{
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+.outline{
+  outline-style: solid;
+}
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.transition-all{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 .duration-300{
   transition-duration: 300ms;
@@ -859,6 +1046,7 @@ video {
     --clr-terziary: #DB1F48;
     --clr-bg: #E5DDC8;
     --clr-text: #000000;
+    --clr-err: red;
 
     --fnt-title: 'Fira Sans', sans-serif;
     --fnt-subtutle: 'Catamaran', sans-serif;
@@ -868,6 +1056,10 @@ video {
 
 body {
     background-color: var(--clr-bg);
+}
+
+.hover\:w-52:hover{
+  width: 13rem;
 }
 
 .hover\:bg-gray-400:hover{
@@ -885,6 +1077,19 @@ body {
 
 .group:hover .group-hover\:flex{
   display: flex;
+}
+
+.group:hover .group-hover\:hidden{
+  display: none;
+}
+
+.group:hover .group-hover\:w-full{
+  width: 100%;
+}
+
+.group:hover .group-hover\:px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .\[\&\>\*\]\:px-2>*{

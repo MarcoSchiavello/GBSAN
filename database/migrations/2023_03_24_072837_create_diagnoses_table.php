@@ -22,14 +22,17 @@ return new class extends Migration
             $table->foreign('id_patient')
                   ->references('id')
                   ->on('patients')
-                  ->onDelete('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
             $table->foreign('id_user')
                   ->references('id')
-                  ->on('users');
+                  ->on('users')
+                  ->onUpdate('cascade');
             $table->foreign('id_disease')
                   ->references('id')
                   ->on('diseases')
-                  ->onDelete('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

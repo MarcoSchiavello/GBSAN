@@ -27,6 +27,6 @@ class Prescription extends Model
             Medicine::class,
             'prescriptions_medicines',
             'id_prescription',
-            'id_medicine')->withPivot('start_date', 'when', 'end_date', 'quantity');
+            'id_medicine')->withPivot('id', 'start_date', 'when', 'end_date', 'quantity');
     }
 }
