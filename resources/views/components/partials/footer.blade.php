@@ -1,3 +1,6 @@
+@push('js')
+    @endpush
+
 <footer class="w-full text-center bg-primary-clr">
     <div class="flex items-center justify-center p-6 border-b-2 border-secondary-clr">
         <div class="flex items-center w-9/12 justify-evenly">
@@ -27,9 +30,16 @@
         </div>
     </div>
 
-    <div class="p-6 text-center bg-primary-clr text-bg-clr">
-        <span>© 2023 Copyright:</span>
-        <a class="font-semibold" href="https://tailwind-elements.com/">Tailwind
-            Elements</a>
-    </div>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript" type="module">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'it'},
+                'google_translate_element'
+            );
+        }
+    </script>
+    
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </footer>

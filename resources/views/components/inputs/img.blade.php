@@ -2,7 +2,7 @@
     'name' => 'img',
     'class' => '',
     'value' => '',
-    'init' => ''
+    'init' => '',
 ])
 
 @push('js')

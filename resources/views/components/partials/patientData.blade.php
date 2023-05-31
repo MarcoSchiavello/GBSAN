@@ -14,7 +14,7 @@
 </div>
 
 <div class="flex flex-col h-[4.8rem] gap-1">
-    <h2 class="text-2xl font-bold text-primary-clr font-subtitle-fnt">ID anagrafe</h2>
+    <h2 class="text-2xl font-bold text-primary-clr font-subtitle-fnt">Identificativo anagrafe</h2>
     <h3 class="text-xl font-bold font-text-fnt">{!! $patient->code === null ? 'Non inserito' : $patient->code !!}</h3>
 </div>
 

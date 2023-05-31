@@ -5,7 +5,7 @@
 
 <div class="flex flex-col items-center w-full gap-4">
     @if ($title)
-        <h1 class="text-2xl font-bold text-secondary-clr font-title-fnt">Farmaci</h1>
+        <h1 class="text-2xl font-bold text-secondary-clr font-title-fnt">Medicine</h1>
     @endif
     
     <div medicine-list class="flex flex-col w-full">

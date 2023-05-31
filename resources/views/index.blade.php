@@ -6,11 +6,11 @@
             <img class="max-w-xs rounded-xl" src="{{ asset('imgs/flag.png') }}" alt="Guinea bissau flag">
         </div>
         <div class="flex flex-col items-start justify-center w-1/2 gap-3">     
-            <h1 class="text-3xl font-bold text-terziary-clr font-title-fnt">GBSAN</h1>
+            <h1 class="text-3xl font-bold text-terziary-clr font-title-fnt notranslate">GBSAN</h1>
             <p class="text-lg text-justify font-text-fnt">
-                Benvenuti nel sito NOME SITO per la gestione dell'ospedale digitale sviluppato dagli studenti della 
-                Scuola Amedeo Avogadro di Torino (IT) in collaborazione con un'organizzazione no-profit Abala lite per
-                migliorare la qualità della salute in Guinea Bissau.<br><br>
+                Benvenuti nel sito&nbsp;<span class="notranslate">NOME SITO</span>&nbsp;per la gestione dell'ospedale digitale sviluppato dagli studenti della Scuola
+                <span class="notranslate">Amedeo Avogadro di Torino (IT)</span>&nbsp;in collaborazione con un'organizzazione no-profit&nbsp;<span class="notranslate">Abala lite</span>&nbsp;per
+                migliorare la qualità della salute in&nbsp;<span class="notranslate">Guinea Bissau</span>.<br><br>
 
                 Il nostro obiettivo è stato quello di digitalizzare i registri cartacei delle malattie e dei 
                 pazienti dell'ospedale per creare una visione più completa e precisa della situazione sanitaria 

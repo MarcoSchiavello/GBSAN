@@ -18,9 +18,9 @@
             '0+' =>  '0+',
             '0-' =>  '0-',
             'AB+' => 'AB+',
-            'AB-' => 'AB-' ]" :init="$default['bloodType'] ?? ''" />
+            'AB-' => 'AB-' ]" :init="$default['bloodType'] ?? ''" :translate="false" />
         <x-inputs.text label="Moranca" name="moranca" size="sm" :value="$default['moranca'] ?? ''" />
-        <x-inputs.select label="Villagio" name="villages" size="sm" :values="collect($villages)->prepend('','Qualsiasi')->all()" :init="$default['village'] ?? ''" />
+        <x-inputs.select label="Villagio" name="villages" size="sm" :values="collect($villages)->prepend('','Qualsiasi')->all()" :init="$default['village'] ?? ''" :translate="false" />
         <x-inputs.text label="Eta" name="age" type="number" size="sm" :value="$default['age'] ?? ''" />
         <x-inputs.select label="Sesso" size="sm" name="sex" :values="[ 'Qualsiasi' =>  '', 'Maschio' => 'M', 'Femmina' => 'F']" :init="$default['sex'] ?? ''" />
     </div>

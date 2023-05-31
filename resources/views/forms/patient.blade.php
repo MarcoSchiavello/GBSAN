@@ -1,6 +1,8 @@
 @extends('forms.template')
 
-@section('title', isset($patient) ? 'Aggiorna Paziente: ' . $patient->name . ' ' . $patient->surname : 'Aggiungi Paziente')
+@section('title')
+    {{ isset($patient) ? 'Aggiorna' : 'Aggiungi' }} Paziente &nbsp;{{ $patient->name . ' ' . $patient->surname }}
+@endsection
 
 @section('form', isset($patient) ? '/update/patient/' . $patient->id : '/add/patient')
 
@@ -16,10 +18,10 @@
     <div class="flex justify-between w-full gap-3">
         <x-inputs.text size="sm" name="moranca" label="Moranca *" :value="isset($patient) ? $patient->moransa : ''" />
         <x-inputs.select name="sex" label="Sesso *" :init="isset($patient) ? $patient->sex : ''" :values="[ 'Maschio' => 'M', 'Femmina' => 'F']" />
-        <x-inputs.select name="village" label="Villaggio *" :init="isset($patient) ? $patient->village : ''" :values="$villages" />
+        <x-inputs.select name="village" label="Villaggio *" :init="isset($patient) ? $patient->village : ''" :values="$villages" :translate="false" />
     </div>
     <div class="flex justify-between w-full gap-3">
-        <x-inputs.text size="sm" name="code" label="ID anagrafe" :value="isset($patient) ? $patient->code : ''" />
+        <x-inputs.text size="sm" name="code" label="Identificativo anagrafe" :value="isset($patient) ? $patient->code : ''" />
         <x-inputs.text size="sm" name="cell" label="Telefono" :value="isset($patient) ? $patient->cell : ''" />
     </div>
     <div class="flex justify-between w-full gap-3">
@@ -37,7 +39,7 @@
                                                                                 '0+' =>  '0+',
                                                                                 '0-' =>  '0-',
                                                                                 'AB+' => 'AB+',
-                                                                                'AB-' => 'AB-' ]" :init="isset($patient) ? $patient->blood_type : ''" />
+                                                                                'AB-' => 'AB-' ]" :init="isset($patient) ? $patient->blood_type : ''" :translate="false" />
     </div>
     <div class="flex justify-between w-full gap-3">
         <x-inputs.text size="sm" name="role" label="Ruolo" :value="isset($patient) ? $patient->role : ''" />

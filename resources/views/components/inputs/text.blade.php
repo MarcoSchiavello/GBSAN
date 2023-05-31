@@ -8,11 +8,12 @@
     'min' => '',
     'max' => '',
     'attr' => [],
-    'hidden' => false
+    'hidden' => false,
+    'translate' => true
 ])
 
 <div class="flex flex-col w-full gap-1 {{ $hidden ? 'hidden' : '' }}">
-    <label for="{{ $name }}" class="text-{{ $size }} font-bold text-primary-clr font-subtitle-fnt">{!! $label !!}</label>
+    <label for="{{ $name }}" class="{{ !$translate ? 'notranslate' : '' }}  text-{{ $size }} font-bold text-primary-clr font-subtitle-fnt">{!! $label !!}</label>
     <input 
     type="{{ $type }}" 
     min="{{ $min }}" 

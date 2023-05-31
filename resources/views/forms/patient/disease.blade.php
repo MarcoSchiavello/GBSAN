@@ -1,6 +1,8 @@
 @extends('forms.template')
 
-@section('title', (isset($diagnose) ? 'Aggiorna' : 'Aggiungi') . ' malattia a ' . $patient->name . ' ' . $patient->surname)
+@section('title')
+    {{ (isset($diagnose) ? 'Aggiorna' : 'Aggiungi') }} malattia a&nbsp;<span class="notranslate">{{ $patient->name . ' ' . $patient->surname }}</span>
+@endsection
 
 @section('form', '/patient/' . $patient->id . (isset($diagnose) ? '/update/diagnose/'. $diagnose->id : '/add/disease'))
 

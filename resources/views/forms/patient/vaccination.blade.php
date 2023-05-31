@@ -1,6 +1,8 @@
 @extends('forms.template')
 
-@section('title', (isset($vaccination) ? 'Aggiorna' : 'Aggiungi') . ' vaccinazione a ' . $patient->name . ' ' . $patient->surname)
+@section('title') 
+    {{ (isset($vaccination) ? 'Aggiorna' : 'Aggiungi')  }} vaccinazione a&nbsp;<span class="notranslate">{{ $patient->name . ' ' . $patient->surname}}</span>
+@endsection
 
 @section('form', '/patient/' . $patient->id . (isset($vaccination) ? '/update/vaccination/'. $vaccination->pivot->id : '/add/vaccination'))
 

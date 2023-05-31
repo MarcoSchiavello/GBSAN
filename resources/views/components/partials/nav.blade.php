@@ -27,7 +27,7 @@
                         <a href="/add/village"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Villaggio</h1></a>
                         <a href="/add/illness"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Disturbo</h1></a>
                         <a href="/add/disease"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Malattia</h1></a>
-                        <a href="/add/medicine"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Farmaco</h1></a>
+                        <a href="/add/medicine"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Medicina</h1></a>
                     @else
                         <a href="/patient/{!! $patient !!}/add/vaccination"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Vaccinazione</h1></a>
                         <a href="/patient/{!! $patient !!}/add/illness"><h1 class="duration-300 cursor-pointer hover:text-terziary-clr">Disturbo</h1></a>

@@ -1,6 +1,8 @@
 @extends('forms.template')
 
-@section('title', (isset($prescription) ? 'Aggiorna' : 'Aggiungi') . ' prescrizione a ' . $patient->name . ' ' . $patient->surname)
+@section('title')
+    {{ (isset($prescription) ? 'Aggiorna' : 'Aggiungi') }} prescrizione a&nbsp;<span class="notranslate">{{ $patient->name . ' ' . $patient->surname }}</span>
+@endsection
 
 @section('form', '/patient/' . $patient->id . (isset($prescription) ? '/update/prescription/'. $prescription->id : '/add/prescription'))
 
