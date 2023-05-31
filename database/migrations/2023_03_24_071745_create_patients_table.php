@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('code', 100)->unique()->nullable();
             $table->string('cell', 20)->unique()->nullable();
             $table->string('role', 50)->nullable();
-            $table->integer('home')->nullable();
-            $table->integer('moransa')->nullable();
+            $table->string('home')->nullable();
+            $table->string('moranca')->nullable()->default('');
             $table->double('weight')->nullable();
             $table->double('height')->nullable();
             $table->double('bmi')->nullable();

@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->text('document');
             $table->date('date');
-            $table->unsignedBigInteger('id_presciption')->index();
-            $table->foreign('id_presciption')
+            $table->unsignedBigInteger('id_prescription')->index();
+            $table->foreign('id_prescription')
                   ->references('id')
                   ->on('prescriptions')
                   ->onDelete('cascade')

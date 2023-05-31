@@ -13,7 +13,8 @@
                 <h1 class="col-span-2">Data di nascita</h1>
                 <h1>Età</h1>
                 <h1>Sesso</h1>
-                <h1 class="col-span-2">Gruppo sanguigno</h1>
+                <h1>Gruppo sanguigno</h1>
+                <h1>Moranca</h1>
                 <h1 class="col-span-2">Villaggio</h1>
             </div>
             @foreach ($patients as $patient)
@@ -23,7 +24,8 @@
                         <h1 class="col-span-2">{!! (new DateTime($patient->birth_date))->format('d/m/Y') !!}</h1>
                         <h1>{!! $patient->age() !!}</h1>
                         <h1>{!! $patient->sex === 'M' ? 'Maschio' : 'Femmina' !!}</h1>
-                        <h1 class="col-span-2">{!! $patient->blood_type !!}</h1>
+                        <h1>{!! $patient->blood_type !!}</h1>
+                        <h1>{!! $patient->moranca ?? 'Non dafinita' !!}</h1>
                         <h1 class="col-span-2">{!! $patient->village->name !!}</h1>
                     </div>
                 </a>

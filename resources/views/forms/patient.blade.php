@@ -11,9 +11,10 @@
     <div class="flex justify-between w-full gap-3">
         <x-inputs.text size="sm" name="name" label="Nome *" :value="isset($patient) ? $patient->name : ''" />
         <x-inputs.text size="sm" name="surname" label="Cognome *" :value="isset($patient) ? $patient->surname : ''" />
+        <x-inputs.text size="sm" name="birthDate" label="Data Nascita *" type="date" :value="isset($patient) ? $patient->birth_date : ''" />
     </div>
     <div class="flex justify-between w-full gap-3">
-        <x-inputs.text size="sm" name="birthDate" label="Data Nascita *" type="date" :value="isset($patient) ? $patient->birth_date : ''" />
+        <x-inputs.text size="sm" name="moranca" label="Moranca *" :value="isset($patient) ? $patient->moransa : ''" />
         <x-inputs.select name="sex" label="Sesso *" :init="isset($patient) ? $patient->sex : ''" :values="[ 'Maschio' => 'M', 'Femmina' => 'F']" />
         <x-inputs.select name="village" label="Villaggio *" :init="isset($patient) ? $patient->village : ''" :values="$villages" />
     </div>
@@ -29,7 +30,6 @@
     <div class="flex justify-between w-full gap-3">
         <x-inputs.text size="sm" type="number" name="cardFreq" label="Frequenza Cardiaca" :value="isset($patient) ? $patient->freq_card : ''" />
         <x-inputs.text size="sm" name="home" label="Casa" :value="isset($patient) ? $patient->home : ''" />
-        <x-inputs.text size="sm" name="moransa" label="Moransa" :value="isset($patient) ? $patient->moransa : ''" />
         <x-inputs.select name="bloodType" label="Gruppo Sanguigno" :values="[   'A+' =>  'A+',
                                                                                 'A-' =>  'A-',
                                                                                 'B+' =>  'B+',

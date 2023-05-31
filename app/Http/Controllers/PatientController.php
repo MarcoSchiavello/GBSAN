@@ -23,9 +23,40 @@ use function Termwind\render;
 
 class PatientController extends Controller {
     function patientList(Request $request) {
-        $patients = Patient::
-        where('name', 'LIKE', "%" . trim($request->get('name')) . "%")
+        $patients = Patient::whereRaw('TRUE');
+
+        if(!empty($request->get('illnesses'))) {
+            $patients = $patients
+            ->whereHas('illnesses', function($q) use ($request) {
+                $query = $q;
+                $query = $query->whereDate('id_illness', '=', $request->get('illnesses') );
+
+                if(!empty($request->get('startDate')))
+                    $query = $query->whereDate('start_date', '>=', date($request->get('startDate')) );
+
+                if(!empty($request->get('endDate')))
+                    $query = $query->whereDate('start_date', '<=', date($request->get('endDate')) );
+            });
+        }
+
+        if(!empty($request->get('diseases'))) {
+            $patients = $patients
+            ->whereHas('diagnoses', function($q) use ($request) {
+                $query = $q;
+                $query = $query->whereDate('id_disease', '=', $request->get('diseases') );
+
+                if(!empty($request->get('startDate')))
+                    $query = $query->whereDate('start_date', '>=', date($request->get('startDate')) );
+
+                if(!empty($request->get('endDate')))
+                    $query = $query->whereDate('start_date', '<=', date($request->get('endDate')) );
+            });
+        }
+
+
+        $patients->where('name', 'LIKE', "%" . trim($request->get('name')) . "%")
         ->where('surname', 'LIKE', "%" . trim($request->get('surname')) . "%")
+        ->where('moranca', 'LIKE', "%" . trim($request->get('moranca')) . "%")
         ->where('birth_date', 'LIKE',  (empty($request->get('birthDate')) ? "%" : $request->get('birthDate')) )
         ->where('blood_type', 'LIKE',  (empty($request->get('bloodType')) ? "%" : $request->get('bloodType')) )
         ->where('id_village', 'LIKE',  (empty($request->get('villages')) ? "%" : $request->get('villages')) )
@@ -88,7 +119,7 @@ class PatientController extends Controller {
         $patient->cell = $request->cell;
         $patient->role = $request->role;
         $patient->home = $request->home;
-        $patient->moransa = $request->moransa;
+        $patient->moranca = $request->moranca;
         $patient->weight = $request->weight;
         $patient->height = $request->height;
         $patient->birth_date = $request->birthDate;
@@ -179,7 +210,7 @@ class PatientController extends Controller {
         $patient->cell = $request->cell;
         $patient->role = $request->role;
         $patient->home = $request->home;
-        $patient->moransa = $request->moransa;
+        $patient->moranca = $request->moranca;
         $patient->weight = $request->weight;
         $patient->height = $request->height;
         $patient->birth_date = $request->birthDate;

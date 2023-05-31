@@ -1,10 +1,10 @@
 "use strict";
+import Timespan from './timespan.js';
 
 const medicineLit = document.querySelector('div[medicine-list]');
 const template = document.querySelector('div[template]');
 const clone = template.cloneNode(true);
 const addBtn = document.querySelector('*[add]');
-const revomeBtns = document.querySelectorAll('*[close]');
 
 template.querySelectorAll('input, select').forEach(input => {
     input.setAttribute('disabled', '');
@@ -19,9 +19,10 @@ addBtn.onclick = e => {
     };  
 
     medicineLit.appendChild(newMedicine);
+    Timespan.bind();
 }
 
-document.querySelectorAll('*[close]').forEach(close =>{ 
+document.querySelectorAll('*[close]').forEach(close => { 
     close.onclick = e => {
         close.parentElement.remove();
     }

@@ -18,8 +18,8 @@
             </div>
             <div class="flex w-full gap-4">
                 <x-inputs.text size="sm" type="time" name="when[]" label="Quando *" />
-                <x-inputs.text size="sm" type="date" name="startDate[]" label="Data inizio *" />
-                <x-inputs.text size="sm" type="date" name="endDate[]" label="Data fine *" />
+                <x-inputs.text size="sm" type="date" name="startDate[]" label="Data inizio *" :attr="[ 'start' => '' ]" />
+                <x-inputs.text size="sm" type="date" name="endDate[]" label="Data fine *" :attr="[ 'end' => '' ]" />
             </div>
         </div>
 
@@ -33,8 +33,8 @@
                 </div>
                 <div class="flex w-full gap-4">
                     <x-inputs.text size="sm" type="time" name="when[]"  label="Quando *" :value="$medicine->pivot->when" />
-                    <x-inputs.text size="sm" type="date" name="startDate[]" label="Data inizio *" :value="$medicine->pivot->start_date" />
-                    <x-inputs.text size="sm" type="date" name="endDate[]" label="Data fine *" :value="$medicine->pivot->end_date" />
+                    <x-inputs.text size="sm" type="date" name="startDate[]" label="Data inizio *" :value="$medicine->pivot->start_date" :attr="[ 'start' => '' ]" />
+                    <x-inputs.text size="sm" type="date" name="endDate[]" label="Data fine *" :value="$medicine->pivot->end_date" :attr="[ 'end' => '' ]" />
                 </div>
             </div>
         @endforeach

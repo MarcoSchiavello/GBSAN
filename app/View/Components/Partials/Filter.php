@@ -2,6 +2,8 @@
 
 namespace App\View\Components\Partials;
 
+use App\Models\Disease;
+use App\Models\Illness;
 use App\Models\Village;
 use Closure;
 use GuzzleHttp\Psr7\Request;
@@ -35,6 +37,27 @@ class Filter extends Component
             })->toArray()
         );
 
+        $diseasesRaw = Disease::all('id', 'name');
+
+        $diseases = array_combine(
+            $diseasesRaw->map(function($value) {
+                return $value->name;
+            })->toArray(), 
+            $diseasesRaw->map(function($value) {
+                return $value->id;
+            })->toArray()
+        );
+
+        $illnessesRaw = Illness::all('id', 'name');
+
+        $illnesses = array_combine(
+            $illnessesRaw->map(function($value) {
+                return $value->name;
+            })->toArray(), 
+            $illnessesRaw->map(function($value) {
+                return $value->id;
+            })->toArray()
+        );
 
         $default = [
             'name' => request()->get('name'),
@@ -43,9 +66,14 @@ class Filter extends Component
             'bloodType' => request()->get('bloodType'),
             'village' => request()->get('village'),
             'age' => request()->get('age'),
-            'sex' => request()->get('sex')
+            'sex' => request()->get('sex'),
+            'startDate' => request()->get('startDate'),
+            'endDate' => request()->get('endDate'),
+            'diseases' => request()->get('diseases'),
+            'moranca' => request()->get('moranca'),
+            'illnesses' => request()->get('illnesses'),
         ];
 
-        return view('components.partials.filter', [ 'villages' => $villages, 'default' => $default ]);
+        return view('components.partials.filter', [ 'villages' => $villages, 'diseases' => $diseases, 'illnesses' => $illnesses, 'default' => $default ]);
     }
 }

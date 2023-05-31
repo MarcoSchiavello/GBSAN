@@ -8,6 +8,7 @@ use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PrescriptionController;
+use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\VillageController;
@@ -28,6 +29,8 @@ use Dompdf\Adapter\PDFLib;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/statistics', [ StatisticsController::class, 'statistics' ])->middleware('auth');
 
 
 /* ___________ AUTH __________ */
