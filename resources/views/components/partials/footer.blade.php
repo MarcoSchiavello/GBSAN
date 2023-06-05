@@ -1,5 +1,4 @@
-@push('js')
-    @endpush
+
 
 <footer class="w-full text-center bg-primary-clr">
     <div class="flex items-center justify-center p-6 border-b-2 border-secondary-clr">

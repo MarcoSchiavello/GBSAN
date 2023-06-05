@@ -5,23 +5,54 @@
         <h1 class="text-4xl font-extrabold text-terziary-clr font-title-fnt">Statistiche</h1>
         <div class="grid grid-cols-2 gap-8">
             <x-partials.graph 
-                id="topDisease"
+                id="topDiseases"
                 title="Malattie più dignosticate"
-                :data="$data"
+                :data="$topDiseases"
                 x="name"
-                y="number" />
-            <div>
-                <h1 class="text-xl font-bold text-primary-clr font-subtitle-fnt">Stats 1</h1>
-                <div class="w-full h-full bg-slate-700"></div>
-            </div>
-            <div>
-                <h1 class="text-xl font-bold text-primary-clr font-subtitle-fnt">Stats 1</h1>
-                <div class="w-full h-full bg-slate-700"></div>
-            </div>
-            <div>
-                <h1 class="text-xl font-bold text-primary-clr font-subtitle-fnt">Stats 1</h1>
-                <div class="w-full h-full bg-slate-700"></div>
-            </div>
+                y="number"
+                label="Numero di malati" />
+            
+            <x-partials.graph 
+                id="topIllnesses"
+                title="Disturbi più dignosticati"
+                :data="$topIllnesses"
+                x="name"
+                y="number"
+                label="Numero di diagnosi" />
+            
+            <x-partials.graph 
+                id="topVaccines"
+                title="Vaccini più somministrati"
+                :data="$topVaccines"
+                x="name"
+                y="number" 
+                label="Numero di inoculazioni" />
+            
+            <x-partials.graph 
+                id="topMedicines"
+                title="Medicine piu prescritte"
+                :data="$topMedicines"
+                x="name"
+                y="number"
+                label="Numero di prescrizioni" />
+
+            <x-partials.graph 
+                id="ratio"
+                title="Rapporto Donne/Uomini malati"
+                :data="$ratio"
+                type="pie"
+                x="name"
+                y="number" 
+                :colors="[ 'pink', 'blue']"
+                class="h-[372px]"/>
+
+            <x-partials.graph 
+                id="topMorances"
+                title="Morance con più malati"
+                :data="$topMorances"
+                x="name"
+                y="number"
+                label="Numero di Malattie e Distubi registarati" />
         </div>
     </div>
 @endsection

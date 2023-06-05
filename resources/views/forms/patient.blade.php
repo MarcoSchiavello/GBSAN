@@ -16,7 +16,7 @@
         <x-inputs.text size="sm" name="birthDate" label="Data Nascita *" type="date" :value="isset($patient) ? $patient->birth_date : ''" />
     </div>
     <div class="flex justify-between w-full gap-3">
-        <x-inputs.text size="sm" name="moranca" label="Moranca *" :value="isset($patient) ? $patient->moransa : ''" />
+        <x-inputs.text size="sm" name="moranca" label="Moranca *" :value="isset($patient) ? $patient->moranca : ''" />
         <x-inputs.select name="sex" label="Sesso *" :init="isset($patient) ? $patient->sex : ''" :values="[ 'Maschio' => 'M', 'Femmina' => 'F']" />
         <x-inputs.select name="village" label="Villaggio *" :init="isset($patient) ? $patient->village : ''" :values="$villages" :translate="false" />
     </div>

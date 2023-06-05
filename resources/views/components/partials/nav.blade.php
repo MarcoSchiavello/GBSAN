@@ -17,7 +17,7 @@
         @if (!$auth)
             <a href="/login"><h2 class="duration-500 ease-in-out cursor-pointer hover:text-terziary-clr transirion">Login</h2></a>
         @else
-            <a href="/login"><h2 class="duration-500 ease-in-out cursor-pointer hover:text-terziary-clr transirion">Statistiche</h2></a>
+            <a href="/statistics"><h2 class="duration-500 ease-in-out cursor-pointer hover:text-terziary-clr transirion">Statistiche</h2></a>
             <div class="group">
                 <h2 class="flex align-middle duration-500 ease-in-out cursor-pointer hover:text-terziary-clr transirion">Aggiungi <x-ri-arrow-drop-down-fill class="w-7" /></h2>
                 <div class="absolute flex-col hidden gap-2 px-6 py-2 border rounded-md group-hover:flex border-secondary-clr bg-bg-clr">

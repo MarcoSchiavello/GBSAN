@@ -50,8 +50,8 @@
     </div>
     
     <div class="flex flex-col h-[4.8rem] gap-1">
-        <h2 class="text-2xl font-bold text-primary-clr font-subtitle-fnt">Moransa</h2>
-        <h3 class="text-xl font-bold font-text-fnt">{!! $patient->moransa === null ? 'Non inserito' : $patient->moransa !!}</h3>
+        <h2 class="text-2xl font-bold text-primary-clr font-subtitle-fnt">Moranca</h2>
+        <h3 class="text-xl font-bold font-text-fnt">{!! $patient->moranca === null ? 'Non inserito' : $patient->moransa !!}</h3>
     </div>
     
     <div class="flex flex-col h-[4.8rem] gap-1">
@@ -82,7 +82,7 @@
     <div class="flex flex-col h-[4.8rem] gap-1">
         <h2 class="text-2xl font-bold text-primary-clr font-subtitle-fnt">Frequenza cardiaca</h2>
         <h3 class="text-xl font-bold font-text-fnt">{!! $patient->freq_card === null ? 'Non inserito' : $patient->freq_card !!}</h3>
-    </div>
+    </div> 
 
     <div class="flex flex-col h-[4.8rem] gap-1">
         <h2 class="text-2xl font-bold text-primary-clr font-subtitle-fnt">Ruolo</h2>
