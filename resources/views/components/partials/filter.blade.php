@@ -10,7 +10,7 @@
         <x-inputs.text label="Cognome" name="surname" size="sm" :value="$default['surname'] ?? ''" />
         <x-inputs.text label="Data di nascita" name="birthDate" type="date" size="sm" :value="$default['birthDate'] ?? ''" />
         <x-inputs.select label="Gruppo sanguigno" name="bloodType" size="sm" :values="[   
-            'Qualsiasi' =>  '',
+            '-' =>  '',
             'A+' =>  'A+',
             'A-' =>  'A-',
             'B+' =>  'B+',
@@ -19,17 +19,17 @@
             '0-' =>  '0-',
             'AB+' => 'AB+',
             'AB-' => 'AB-' ]" :init="$default['bloodType'] ?? ''" :translate="false" />
-        <x-inputs.text label="Moranca" name="moranca" size="sm" :value="$default['moranca'] ?? ''" />
-        <x-inputs.select label="Villagio" name="villages" size="sm" :values="collect($villages)->prepend('','Qualsiasi')->all()" :init="$default['village'] ?? ''" :translate="false" />
+        <x-inputs.text label="Morança" name="moranca" size="sm" :value="$default['moranca'] ?? ''" />
+        <x-inputs.select label="Villagio" name="villages" size="sm" :values="collect($villages)->prepend('','-')->all()" :init="$default['village'] ?? ''" :translate="false" />
         <x-inputs.text label="Eta" name="age" type="number" size="sm" :value="$default['age'] ?? ''" />
-        <x-inputs.select label="Sesso" size="sm" name="sex" :values="[ 'Qualsiasi' =>  '', 'Maschio' => 'M', 'Femmina' => 'F']" :init="$default['sex'] ?? ''" />
+        <x-inputs.select label="Sesso" size="sm" name="sex" :values="[ '-' =>  '', 'Maschio' => 'M', 'Femmina' => 'F']" :init="$default['sex'] ?? ''" />
     </div>
 
     <div class="flex w-full gap-7">
         <x-inputs.text label="Data inizio" name="startDate" size="sm" type="date" :attr="[ 'start' => '' ]" :value="$default['startDate'] ?? ''" />
         <x-inputs.text label="Data fine" name="endDate" size="sm" type="date" :attr="[ 'end' => '' ]" :value="$default['endDate'] ?? ''" />
-        <x-inputs.select label="Malattie" name="diseases" size="sm" :values="collect($diseases)->prepend('','Qualsiasi')->all()" :init="$default['diseases'] ?? ''" />
-        <x-inputs.select label="Disturbi" name="illnesses" size="sm" :values="collect($illnesses)->prepend('','Qualsiasi')->all()" :init="$default['illnesses'] ?? ''" />
+        <x-inputs.select label="Malattie" name="diseases" size="sm" :values="collect($diseases)->prepend('','-')->all()" :init="$default['diseases'] ?? ''" :translate="false" />
+        <x-inputs.select label="Disturbi" name="illnesses" size="sm" :values="collect($illnesses)->prepend('','-')->all()" :init="$default['illnesses'] ?? ''" :translate="false" />
     </div>
     
     <div class="flex gap-7">

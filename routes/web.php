@@ -49,7 +49,7 @@ Route::post('/patient/{patient}/add/disease', [ DiseaseController::class, 'addTo
 Route::delete('/patient/{patient}/delete/diagnose/{diagnose}', [ PatientController::class, 'deleteDiagnose' ])->middleware('auth');
 Route::get('/patient/{patient}/update/diagnose/{diagnose}', [ PatientController::class, 'updateDiagnoseForm' ])->middleware('auth');
 Route::put('/patient/{patient}/update/diagnose/{diagnose}', [ PatientController::class, 'updateDiagnose' ])->middleware('auth');
-Route::post('/patient/{patient}/print/diagnose/{diagnose}', [ PDFLib::class, 'printDiagnose' ])->middleware('auth');
+Route::post('/patient/{patient}/print/diagnose/{diagnose}', [ PDFController::class, 'printDisease' ])->middleware('auth');
 
 Route::get('/patient/{patient}/add/illness', [ IllnessController::class, 'patientIllness' ])->middleware('auth');
 Route::post('/patient/{patient}/add/illness', [ IllnessController::class, 'addToPatient' ])->middleware('auth');

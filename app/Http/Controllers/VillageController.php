@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\Validator;
 use App\Models\Village;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class VillageController extends Controller {
     }
 
     function addVillage(Request $request) {
+        Validator::validateVillage($request);
         $newVillage = new Village;
         $newVillage->name = $request->name;
         $newVillage->desc = $request->desc;
@@ -24,6 +26,7 @@ class VillageController extends Controller {
     }
 
     function updateVillage(Request $request, int $villageId) {
+        Validator::validateVillage($request);
         $village = Village::find($villageId);
         $village->name = $request->name;
         $village->id = $request->id;

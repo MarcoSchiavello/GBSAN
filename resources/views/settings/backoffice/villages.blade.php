@@ -8,7 +8,6 @@
             :name="$village->name"
             :code="$village->id" 
             put="/update/village/{{ $village->id }}"
-            delete="/delete/village/{{ $village->id }}"
-            :translate="false" />
+            delete="/delete/village/{{ $village->id }}" />
     @endforeach
 @endsection

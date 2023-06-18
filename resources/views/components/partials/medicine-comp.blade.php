@@ -13,13 +13,13 @@
             <x-ri-close-fill close class="absolute right-0 w-8 top-2 fill-primary-clr" />
 
             <div class="flex w-full gap-4">
-                <x-inputs.select name="medicine[]" label="Farmaco *" :values="$medicines" />
-                <x-inputs.text size="sm" name="dosage[]" label="Doaggio *" type="number" />
+                <x-inputs.select name="medicine[]" label="Farmaco *" :values="$medicines" :translate="false" />
+                <x-inputs.text size="sm" name="dosage[]" label="Doaggio *" type="number" value="1" step="0.5" />
             </div>
             <div class="flex w-full gap-4">
-                <x-inputs.text size="sm" type="time" name="when[]" label="Quando *" />
-                <x-inputs.text size="sm" type="date" name="startDate[]" label="Data inizio *" :attr="[ 'start' => '' ]" />
-                <x-inputs.text size="sm" type="date" name="endDate[]" label="Data fine *" :attr="[ 'end' => '' ]" />
+                <x-inputs.text size="sm" type="time" name="when[]" label="Quando *" step="0" value="12:00"  />
+                <x-inputs.text size="sm" type="date" name="startDate[]" label="Data inizio *" :attr="[ 'start' => '' ]" :value="now()->format('Y-m-d')" />
+                <x-inputs.text size="sm" type="date" name="endDate[]" label="Data fine *" :attr="[ 'end' => '' ]" :value="now()->addWeek(1)->format('Y-m-d')" />
             </div>
         </div>
 
@@ -28,11 +28,11 @@
                 <x-ri-close-fill close class="absolute right-0 w-8 top-2 fill-primary-clr" />
 
                 <div class="flex w-full gap-4">
-                    <x-inputs.select name="medicine[]" label="Farmaco *" :values="$medicines" :init="$medicine->id" />
-                    <x-inputs.text size="sm" name="dosage[]" label="Doaggio *" min="1" type="number" :value="$medicine->pivot->quantity" />
+                    <x-inputs.select name="medicine[]" label="Farmaco *" :values="$medicines" :init="$medicine->id" :translate="false" />
+                    <x-inputs.text size="sm" name="dosage[]" label="Doaggio *" min="1" type="number" :value="$medicine->pivot->quantity" step="0.5" />
                 </div>
                 <div class="flex w-full gap-4">
-                    <x-inputs.text size="sm" type="time" name="when[]"  label="Quando *" :value="$medicine->pivot->when" />
+                    <x-inputs.text size="sm" type="time" name="when[]"  label="Quando *" :value="$medicine->pivot->when" step="0" />
                     <x-inputs.text size="sm" type="date" name="startDate[]" label="Data inizio *" :value="$medicine->pivot->start_date" :attr="[ 'start' => '' ]" />
                     <x-inputs.text size="sm" type="date" name="endDate[]" label="Data fine *" :value="$medicine->pivot->end_date" :attr="[ 'end' => '' ]" />
                 </div>

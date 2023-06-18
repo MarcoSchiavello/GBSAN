@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\Validator;
 use App\Models\Illness;
 use App\Models\Patient;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class IllnessController extends Controller {
     }
 
     function addIllness(Request $request) {
+        Validator::validateBackOffice($request);
         $newIllness = new Illness;
         $newIllness->id = $request->id;
         $newIllness->name = $request->name;
@@ -37,6 +39,7 @@ class IllnessController extends Controller {
     }
 
     function addToPatient(Request $request, int $patientId) {
+        Validator::validateIllness($request);
         Patient::find($patientId)->illnesses()->attach($request->illnessId, [
             'start_date' => $request->date,
             'note' => $request->note,
@@ -51,6 +54,7 @@ class IllnessController extends Controller {
     }
 
     function updateIllness(Request $request, string $illnessId) {
+        Validator::validateBackOffice($request);
         $illness = Illness::find($illnessId);
         $illness->name = $request->name;
         $illness->id = $request->id;

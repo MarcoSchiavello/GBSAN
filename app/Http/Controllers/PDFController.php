@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diagnose;
-use App\Models\Illness;
 use App\Models\Patient;
 use App\Models\Prescription;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -50,7 +49,7 @@ class PDFController extends Controller {
         $pdf->loadView('PDFs.disease', [
             'pdf' => $this->getPDFData(),
             'patient' => $patient,
-            'dignose' => Diagnose::find($diagnoseId)
+            'diagnose' => Diagnose::find($diagnoseId)
         ]);
         
         return $pdf->download($patient->name . '_' . $patient->surname . '_disease.pdf');

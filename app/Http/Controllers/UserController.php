@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\Validator;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,7 @@ class UserController extends Controller {
     }
 
     function changeData(Request $request) {
+        Validator::validateUser($request);
         $user = User::find(Auth::user()->id);
         $user->username = $request->username;
         $user->password = !empty($request->password) ? \Hash::make($request->password) : Auth::user()->password;
@@ -30,7 +32,7 @@ class UserController extends Controller {
     }
 
     function addUser(Request $request) {
-
+        Validator::validateUser($request);
         $user = User::find(Auth::user()->id);
         $user->username = $request->username;
         $user->password = \Hash::make($request->password);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\Validator;
 use App\Models\Diagnose;
 use App\Models\Disease;
 use App\Models\Illness;
@@ -18,8 +19,6 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Type\Integer;
-
-use function Termwind\render;
 
 class PatientController extends Controller {
     function patientList(Request $request) {
@@ -52,7 +51,6 @@ class PatientController extends Controller {
                     $query = $query->whereDate('start_date', '<=', date($request->get('endDate')) );
             });
         }
-
 
         $patients->where('name', 'LIKE', "%" . trim($request->get('name')) . "%")
         ->where('surname', 'LIKE', "%" . trim($request->get('surname')) . "%")
@@ -106,9 +104,7 @@ class PatientController extends Controller {
     }
 
     function addPatient(Request $request) {
-        $request->validate([
-            'img' => 'required'
-        ]);
+        Validator::validatePatientForm($request);
         $Date = new DateTime();
         $Date->setTimezone(new DateTimeZone('Europe/Rome'));
 
@@ -200,6 +196,7 @@ class PatientController extends Controller {
     }
 
     function updatePatient(Request $request, int $patientId) {
+        Validator::validatePatientForm($request, true);
         $Date = new DateTime();
         $Date->setTimezone(new DateTimeZone('Europe/Rome'));
 
@@ -265,6 +262,7 @@ class PatientController extends Controller {
     }
 
     function updateIllness(Request $request, int $patientId, int $pivotId) {
+        Validator::validateIllness($request);
         DB::transaction(function () use ($patientId, $request, $pivotId) {
             Patient::find($patientId)->illnesses()->wherePivot('id', '=', $pivotId)->detach();
             Patient::find($patientId)->illnesses()->attach($request->illnessId, [
@@ -300,6 +298,7 @@ class PatientController extends Controller {
     }
 
     function updateVaccination(Request $request, int $patientId, int $pivotId) {
+        Validator::validateVacciantion($request);
         DB::transaction(function () use ($patientId, $request, $pivotId) {
             Patient::find($patientId)->vaccinations()->wherePivot('id', '=', $pivotId)->detach();
             Patient::find($patientId)->vaccinations()->attach($request->vaccineId, [
@@ -331,6 +330,7 @@ class PatientController extends Controller {
     }
 
     function updateDiagnose(Request $request, int $patientId, int $diagnoseId) {
+        Validator::validateDisease($request);
         $diagnose = Diagnose::find($diagnoseId);
         $diagnose->id_disease = $request->disease;
         $diagnose->id_user = Auth::user()->id;
@@ -343,6 +343,7 @@ class PatientController extends Controller {
             $diagnose->medicines()->detach();
 
             if($request->medicine !== null) {
+                Validator::validateMedicine($request);
                 for($i = 0; $i < count($request->medicine); $i++) {
                     Diagnose::find($diagnose->id)->medicines()->attach($request->medicine[$i], [
                         'start_date' => $request->startDate[$i],

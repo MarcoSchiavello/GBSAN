@@ -14,11 +14,11 @@
                 <h1>Età</h1>
                 <h1>Sesso</h1>
                 <h1>Gruppo sanguigno</h1>
-                <h1>Moranca</h1>
+                <h1>Morança</h1>
                 <h1 class="col-span-2">Villaggio</h1>
             </div>
             @foreach ($patients as $patient)
-                <a href="patient/{!! $patient->id !!}/illnesses">
+                <a href="patient/{!! $patient->id !!}/diseases">
                     <div class="grid grid-cols-11 font-bold font-text-fnt ease-out duration-300 hover:bg-gray-400 cursor-pointer [&>:not(:last-child)]:border-r-2 [&>*]:px-2 [&>*]:py-1 [&>:not(:last-child)]:border-secondary-clr">
                         <h1 class="col-span-3 notranslate">{!! $patient->name . ' ' . $patient->surname !!}</h1>
                         <h1 class="col-span-2">{!! (new DateTime($patient->birth_date))->format('d/m/Y') !!}</h1>

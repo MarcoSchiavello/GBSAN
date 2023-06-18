@@ -13,6 +13,7 @@ template.querySelectorAll('input, select').forEach(input => {
 addBtn.onclick = e => {
     const newMedicine = clone.cloneNode(true);
     newMedicine.classList.remove('hidden');
+    newMedicine.removeAttribute('template');
 
     newMedicine.querySelector('*[close]').onclick = e => {
         newMedicine.remove();

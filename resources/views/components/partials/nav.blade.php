@@ -8,9 +8,9 @@
     <div class="flex items-center h-full gap-4">
         <a href="{{ !$auth ?  '/' : '/patients' }}"><img src="{{ asset('imgs/logo.png') }}" alt="logo" @class(['w-20', 'opacity-0' => !$logo])></a>
         <hr @class(['w-[2px]', 'h-10', 'bg-secondary-clr', 'opacity-0' => !$logo])>
-        <a href=""><img @class(['h-20', 'opacity-0' => !$logo]) src="{{ asset('imgs/onlus.png') }}" alt="onlus"></a>
-        <a href=""><img @class(['h-20', 'opacity-0' => !$logo]) src="{{ asset('imgs/avogadro.png') }}" alt="avogadro"></a>
-        <a href=""><img @class(['h-20', 'opacity-0' => !$logo]) src="{{ asset('imgs/abalite.png') }}" alt="abalite"></a>
+        <a href="https://www.abalalite.it/"><img @class(['h-20', 'opacity-0' => !$logo]) src="{{ asset('imgs/onlus.png') }}" alt="onlus"></a>
+        <a href="https://www.sito.itisavogadro.org/"><img @class(['h-20', 'opacity-0' => !$logo]) src="{{ asset('imgs/avogadro.png') }}" alt="avogadro"></a>
+        <a href="https://www.abalalite.it/"><img @class(['h-20', 'opacity-0' => !$logo]) src="{{ asset('imgs/abalite.png') }}" alt="abalite"></a>
     </div>
 
     <div class="flex justify-between gap-4 text-xl font-bold text-secondary-clr">

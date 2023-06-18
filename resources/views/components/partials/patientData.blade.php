@@ -15,7 +15,7 @@
 
 <div class="flex flex-col h-[4.8rem] gap-1">
     <h2 class="text-2xl font-bold text-primary-clr font-subtitle-fnt">Identificativo anagrafe</h2>
-    <h3 class="text-xl font-bold font-text-fnt">{!! $patient->code === null ? 'Non inserito' : $patient->code !!}</h3>
+    <h3 class="text-xl font-bold font-text-fnt notranslate">{!! $patient->code === null ? 'Non inserito' : $patient->code !!}</h3>
 </div>
 
 <div class="grid grid-cols-3">
@@ -50,8 +50,8 @@
     </div>
     
     <div class="flex flex-col h-[4.8rem] gap-1">
-        <h2 class="text-2xl font-bold text-primary-clr font-subtitle-fnt">Moranca</h2>
-        <h3 class="text-xl font-bold font-text-fnt">{!! $patient->moranca === null ? 'Non inserito' : $patient->moransa !!}</h3>
+        <h2 class="text-2xl font-bold text-primary-clr font-subtitle-fnt">Morança</h2>
+        <h3 class="text-xl font-bold font-text-fnt">{!! $patient->moranca === null ? 'Non inserito' : $patient->moranca !!}</h3>
     </div>
     
     <div class="flex flex-col h-[4.8rem] gap-1">

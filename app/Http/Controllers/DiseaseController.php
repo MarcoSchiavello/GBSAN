@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\Validator;
 use App\Models\Diagnose;
 use App\Models\Disease;
 use App\Models\Patient;
@@ -15,6 +16,7 @@ class DiseaseController extends Controller {
     }
 
     function addDisease(Request $request) {
+        Validator::validateBackOffice($request);
         $newDisease = new Disease;
         $newDisease->id = $request->id;
         $newDisease->name = $request->name;
@@ -39,6 +41,7 @@ class DiseaseController extends Controller {
     }
 
     function addToPatient(Request $request, int $patientId) {
+        Validator::validateDisease($request);
         $diagnose = new Diagnose;
         $diagnose->id_disease = $request->disease;
         $diagnose->id_patient = $patientId;
@@ -50,6 +53,7 @@ class DiseaseController extends Controller {
             $diagnose->save();
 
             if($request->medicine !== null) {
+                Validator::validateMedicine($request);
                 for($i = 0; $i < count($request->medicine); $i++) {
                     Diagnose::find($diagnose->id)->medicines()->attach($request->medicine[$i], [
                         'start_date' => $request->startDate[$i],
@@ -70,6 +74,7 @@ class DiseaseController extends Controller {
     }
 
     function updateDisease(Request $request, string $diseaseId) {
+        Validator::validateBackOffice($request);
         $disease = Disease::find($diseaseId);
         $disease->name = $request->name;
         $disease->id = $request->id;

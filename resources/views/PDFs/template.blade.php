@@ -1040,12 +1040,12 @@
     <h1 style="margin-bottom: 1.3rem; margin-top: 1rem" class="text-4xl font-bold text-center font-subtitle-fnt text-primary-clr notranslate">{{ $pdf['name'] }}</h1>
     
     <div class="flex flex-col items-center justify-center w-full">
-        <h3 class="text-xl font-bold text-center font-subtitle-fnt text-primary-clr notranslate">Indirizzo</h3>
+        <h3 class="text-xl font-bold text-center font-subtitle-fnt text-primary-clr notranslate">Endereço / Indirizzo</h3>
         <h1 class="text-2xl text-center font-text-fnt text-text-clr notranslate">{{ $pdf['address'] }}</h1>
     </div>
 
     <div class="flex flex-col items-center justify-center w-full">
-        <h3 class="text-xl font-bold text-center font-subtitle-fnt text-primary-clr notranslate">Contatti</h3>
+        <h3 class="text-xl font-bold text-center font-subtitle-fnt text-primary-clr notranslate">Contatos / Contatti</h3>
         <h1 class="text-2xl text-center font-text-fnt text-text-clr notranslate">{{ $pdf['contacts'] }}</h1>
     </div>
 

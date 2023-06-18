@@ -3,9 +3,9 @@
 <footer class="w-full text-center bg-primary-clr">
     <div class="flex items-center justify-center p-6 border-b-2 border-secondary-clr">
         <div class="flex items-center w-9/12 justify-evenly">
-            <a href=""><img class="h-20" src="{{ asset('imgs/onlus.png') }}" alt="onlus"></a>
-            <a href=""><img class="h-20" src="{{ asset('imgs/avogadro.png') }}" alt="avogadro"></a>
-            <a href=""><img class="h-20" src="{{ asset('imgs/abalite.png') }}" alt="abalite"></a>
+            <a href="https://www.abalalite.it/"><img class="h-20" src="{{ asset('imgs/onlus.png') }}" alt="onlus"></a>
+            <a href="https://www.sito.itisavogadro.org/"><img class="h-20" src="{{ asset('imgs/avogadro.png') }}" alt="avogadro"></a>
+            <a href="https://www.abalalite.it/"><img class="h-20" src="{{ asset('imgs/abalite.png') }}" alt="abalite"></a>
         </div>
     </div>
 
@@ -31,7 +31,15 @@
 
     <div id="google_translate_element"></div>
     <script type="text/javascript" type="module">
+        function setCookie(key, value, expiry) {
+            var expires = new Date();
+            expires.setTime(expires.getTime() + (expiry * 24 * 60 * 60 * 1000));
+            document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+        }
+        
         function googleTranslateElementInit() {
+            setCookie('googtrans', '/it/pt',1);
+
             new google.translate.TranslateElement(
                 {pageLanguage: 'it'},
                 'google_translate_element'

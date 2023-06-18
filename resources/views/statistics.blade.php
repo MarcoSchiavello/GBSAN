@@ -10,7 +10,7 @@
                 :data="$topDiseases"
                 x="name"
                 y="number"
-                label="Numero di malati" />
+                label="Número de pessoas doentes / Numero di malati" />
             
             <x-partials.graph 
                 id="topIllnesses"
@@ -18,7 +18,7 @@
                 :data="$topIllnesses"
                 x="name"
                 y="number"
-                label="Numero di diagnosi" />
+                label="Número de diagnóstico / Numero di diagnosi" />
             
             <x-partials.graph 
                 id="topVaccines"
@@ -26,7 +26,7 @@
                 :data="$topVaccines"
                 x="name"
                 y="number" 
-                label="Numero di inoculazioni" />
+                label="Número de inoculações / Numero di inoculazioni" />
             
             <x-partials.graph 
                 id="topMedicines"
@@ -34,7 +34,7 @@
                 :data="$topMedicines"
                 x="name"
                 y="number"
-                label="Numero di prescrizioni" />
+                label="Número de prescrições / Numero di prescrizioni" />
 
             <x-partials.graph 
                 id="ratio"
@@ -52,7 +52,7 @@
                 :data="$topMorances"
                 x="name"
                 y="number"
-                label="Numero di Malattie e Distubi registarati" />
+                label="Número de doenças e distúrbios registrados / Numero di Malattie e Distubi registarati" />
         </div>
     </div>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\Validator;
 use App\Models\Medicine;
 use Illuminate\Foundation\Mix;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class MedicineController extends Controller {
     }
 
     function addMedicine(Request $request) {
+        Validator::validateBackOffice($request);
         $newMedicine = new Medicine;
         $newMedicine->id = $request->id;
         $newMedicine->name = $request->name;
@@ -25,6 +27,7 @@ class MedicineController extends Controller {
     }
 
     function updateMedicine(Request $request, string $medicineId) {
+        Validator::validateBackOffice($request);
         $medicine = Medicine::find($medicineId);
         $medicine->name = $request->name;
         $medicine->id = $request->id;

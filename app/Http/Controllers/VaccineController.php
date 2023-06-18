@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\Validator;
 use App\Models\Patient;
 use App\Models\Vaccine;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class VaccineController extends Controller {
     }
 
     function addVaccine(Request $request) {
+        Validator::validateBackOffice($request);
         $newVaccine = new Vaccine;
         $newVaccine->id = $request->id;
         $newVaccine->name = $request->name;
@@ -53,6 +55,7 @@ class VaccineController extends Controller {
     }
 
     function updateVaccine(Request $request, string $vaccineId) {
+        Validator::validateBackOffice($request);
         $vaccine = Vaccine::find($vaccineId);
         $vaccine->name = $request->name;
         $vaccine->id = $request->id;

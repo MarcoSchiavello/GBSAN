@@ -7,7 +7,7 @@
                                 put="/patient/{{ $patient->id }}/update/vaccination/{{ $vaccination->pivot->id }}"
                                 print="/patient/{{ $patient->id }}/print/vaccination/{{ $vaccination->pivot->id }}">
             <div class="flex items-baseline gap-4">
-                <h1 class="text-3xl font-bold text-terziary-clr font-title-fnt">{!! $vaccination->name !!}</h1>
+                <h1 class="text-3xl font-bold text-terziary-clr font-title-fnt notranslate">{!! $vaccination->name !!}</h1>
                 <h3 class="text-lg font-bold text-primary-clr font-subtitle-fnt notranslate">{!! $vaccination->id !!}</h3>
             </div>
             <div class="flex gap-10">
@@ -26,7 +26,7 @@
             </div>
             <div>
                 <h1 class="text-xl font-bold text-primary-clr font-subtitle-fnt">Osservazioni</h1>
-                <h3 class="font-text-fnt">
+                <h3 class="font-text-fnt notranslate">
                     {!! $vaccination->pivot->note !!}
                 </h3>
             </div>
