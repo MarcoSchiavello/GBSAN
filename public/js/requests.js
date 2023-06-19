@@ -50,6 +50,9 @@ posts.forEach(post => {
             return;
             
         form.setAttribute("method", "POST");
+
+        if(post.getAttribute('newPage') === 'true')
+            form.setAttribute("target", "_blank");
         method.value = 'POST';
         form.append(method);
         csrf.value = post.getAttribute('token');

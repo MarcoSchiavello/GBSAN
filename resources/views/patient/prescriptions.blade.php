@@ -47,7 +47,7 @@
                             <x-ri-file-2-fill class="w-10 fill-bg-clr group-hover:hidden" />
                             
                             <div class="flex-col items-center justify-center hidden w-0 h-full gap-3 transition-all group-hover:w-full group-hover:px-6 group-hover:flex">
-                                <p class="font-bold text-md font-text-fnt text-bg-clr notranslate">{!! basename($document->document) !!}</p>
+                                <p class="font-bold break-all text-md font-text-fnt text-bg-clr notranslate">{!! basename($document->document) !!}</p>
                                 <div class="flex gap-3">
                                     <x-controls.button type="button" :fit="true" :attr="['download' => asset($document->document), 'downloadName' => basename($document->document)]"><x-ri-download-line class="w-6 fill-bg-clr" /></x-controls.button>
                                     <x-controls.button type="button" :fit="true" :attr="['delete' => '/patient/' . $patient->id . '/prescription/' . $prescription->id . '/delete/document/' . $document->id, 'token' => csrf_token() ]"><x-ri-delete-bin-5-line class="w-6 fill-bg-clr" /></x-controls.button>

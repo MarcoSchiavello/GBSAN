@@ -31,7 +31,7 @@ const bindElements = () => {
 
         input.onchange = uploadProd;
 
-        if(preview.getAttribute('init') !== '') {
+        if(preview !== null && preview.getAttribute('init') !== '') {
             console.log(preview.src);
             preview.src = preview.getAttribute('init')
             preview.style.display = "block";

@@ -18,7 +18,8 @@
             Anteprima
             <x-controls.button type="button" :fit="true" :attr="[ 
                 'post' => '/print/template', 
-                'token' => csrf_token() 
+                'token' => csrf_token(),
+                'newPage' => 'true'
             ]"><x-ri-printer-line class="w-10 fill-bg-clr" /></x-controls.button>
         </h2>
         <div class="w-full bg-white border-2 rounded-lg h-80 border-primary-clr">

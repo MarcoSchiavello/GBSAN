@@ -5,7 +5,7 @@
 <div class="flex justify-between">
     <div class="flex items-baseline gap-3">
         <img class="object-cover w-16 h-16" src="{{ asset($patient->img) }}">
-        <h1 class="text-5xl font-bold text-terziary-clr font-title-fnt">{!! $patient->name . ' ' . $patient->surname !!}</h1>
+        <h1 class="text-5xl font-bold text-terziary-clr font-title-fnt notranslate">{!! $patient->name . ' ' . $patient->surname !!}</h1>
     </div>
     <div class="flex gap-3">
         <x-controls.button type="a" action="/update/patient/{!! $patient->id !!}" :fit="true" ><x-ri-pencil-line class="w-14 fill-bg-clr" /></x-controls.button>

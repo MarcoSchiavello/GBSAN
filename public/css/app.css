@@ -443,9 +443,6 @@ video {
 .top-1{
   top: 0.25rem;
 }
-.top-1\/4{
-  top: 25%;
-}
 .top-2{
   top: 0.5rem;
 }
@@ -779,6 +776,9 @@ video {
 .break-normal{
   overflow-wrap: normal;
   word-break: normal;
+}
+.break-all{
+  word-break: break-all;
 }
 .rounded-lg{
   border-radius: 0.5rem;

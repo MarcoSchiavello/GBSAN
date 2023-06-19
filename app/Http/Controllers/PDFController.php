@@ -7,6 +7,7 @@ use App\Models\Patient;
 use App\Models\Prescription;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Support\Facades\Storage;
 
 class PDFController extends Controller {
@@ -39,7 +40,7 @@ class PDFController extends Controller {
             'pdf' => $this->getPDFData(),
         ]);
         
-        return $pdf->download('template.pdf');
+        return $pdf->stream('template.pdf', [ 'Attachment' => 0 ]);
     }
     
     function printDisease(int $patientId, int $diagnoseId) {
@@ -52,7 +53,7 @@ class PDFController extends Controller {
             'diagnose' => Diagnose::find($diagnoseId)
         ]);
         
-        return $pdf->download($patient->name . '_' . $patient->surname . '_disease.pdf');
+        return $pdf->stream($patient->name . '_' . $patient->surname . '_disease.pdf', [ 'Attachment' => 0 ]);
     }
 
     function printIllness(int $patientId, int $pivotId) {
@@ -65,7 +66,7 @@ class PDFController extends Controller {
             'illness' => $patient->illnesses()->wherePivot('id', $pivotId)->first()
         ]);
         
-        return $pdf->download($patient->name . '_' . $patient->surname . '_illness.pdf');
+        return $pdf->stream($patient->name . '_' . $patient->surname . '_illness.pdf', [ 'Attachment' => 0 ]);
     }
 
     function printVaccination(int $patientId, int $pivotId) {
@@ -78,7 +79,7 @@ class PDFController extends Controller {
             'vaccination' => $patient->vaccinations()->wherePivot('id', $pivotId)->first()
         ]);
         
-        return $pdf->download($patient->name . '_' . $patient->surname . '_vaccination.pdf');
+        return $pdf->stream($patient->name . '_' . $patient->surname . '_vaccination.pdf', [ 'Attachment' => 0 ]);
     }
 
     function printPrescription(int $patientId, int $prescriptionId) {
@@ -91,6 +92,6 @@ class PDFController extends Controller {
             'prescription' => Prescription::find($prescriptionId)
         ]);
         
-        return $pdf->download($patient->name . '_' . $patient->surname . '_prescription.pdf');
+        return $pdf->stream($patient->name . '_' . $patient->surname . '_prescription.pdf', [ 'Attachment' => 0 ]);
     }
 }

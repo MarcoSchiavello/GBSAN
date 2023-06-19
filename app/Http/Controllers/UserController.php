@@ -33,7 +33,7 @@ class UserController extends Controller {
 
     function addUser(Request $request) {
         Validator::validateUser($request);
-        $user = User::find(Auth::user()->id);
+        $user = new User;
         $user->username = $request->username;
         $user->password = \Hash::make($request->password);
         $user->name = $request->name;
