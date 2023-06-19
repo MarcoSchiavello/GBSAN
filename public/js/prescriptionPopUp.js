@@ -6,7 +6,7 @@ const popUpFormAction = popUpForm.action;
 
 popUpTriggers.forEach(trigger => {
     trigger.addEventListener('click', e => {
-        popUpForm.action = popUpForm.action.replace('|||prescription|||', trigger.getAttribute('prescription-trigger'));  
+        popUpForm.action = popUpForm.action.replace('__PRE__', trigger.getAttribute('prescription-trigger'));  
     });
 });
 

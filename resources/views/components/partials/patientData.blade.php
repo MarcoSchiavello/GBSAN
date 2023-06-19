@@ -96,6 +96,6 @@
 </div>
 
 <div class="flex flex-col justify-end text-primary-clr">
-    <h4>Aggiunto da {!! Auth::user()->username !!}</h4>
+    <h4>Aggiunto da {!! $patient->user->username !!}</h4>
     <h4>Ultima modifica {!! (new DateTime($patient->last_modified))->format('d/m/Y H:i:s') !!}</h4>
 </div>

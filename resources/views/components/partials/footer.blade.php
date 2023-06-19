@@ -38,7 +38,10 @@
         }
         
         function googleTranslateElementInit() {
-            setCookie('googtrans', '/it/pt',1);
+            if(document.cookie.indexOf('primaVolta') === -1) {
+                setCookie('googtrans', '/it/pt', 1);
+                setCookie('primaVolta', 'true', 1);
+            }
 
             new google.translate.TranslateElement(
                 {pageLanguage: 'it'},

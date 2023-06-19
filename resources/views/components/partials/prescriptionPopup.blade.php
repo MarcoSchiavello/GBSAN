@@ -10,7 +10,7 @@
 @endpush
 
 <div pop-up="addDocument" class="fixed top-0 left-0 z-30 items-center justify-center hidden w-full h-full bg-black bg-opacity-75">
-    <form action="/patient/{{ $patient }}/add/prescription/|||prescription|||/document" pup-up-form method="POST" class="relative flex flex-col max-w-lg gap-8 p-16 bg-bg-clr" enctype="multipart/form-data">
+    <form action="/patient/{{ $patient }}/add/prescription/__PRE__/document" pup-up-form method="POST" class="relative flex flex-col max-w-lg gap-8 p-16 bg-bg-clr" enctype="multipart/form-data">
         @csrf
         <x-ri-close-fill class="absolute w-10 fill-text-clr top-4 right-4" close-pop-up />
         <input type="file" name="file" realUpload="file" class="hidden" />
