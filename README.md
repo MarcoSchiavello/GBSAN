@@ -9,7 +9,7 @@
 -  [About](#about)
 -  [Tech-stack](#tech-stack)
 -  [Installation](#installation)
--  [Installation in shared web hosting](#installation_in_shared_web_hosting)
+-  [Installation in shared web hosting](#installation-in-shared-web-hosting)
 -  [DB-schema](#db-schema)
 -  [Screenshots](#screenshots)
 </details>
