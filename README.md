@@ -38,7 +38,7 @@ Then you have to :
 Now you can run the application by doing ```php artisan serve```
 
 ## Installation in shared web hosting
-In order to let the application work in a shared web host, you have to 
+In order to let the application work in a shared web host, you have to: 
 - Put the content of ```public/``` in the ```htdocs/``` directory
 - Create a directory in ```htdocs/``` called ```laravel/```
 - Put all the content of the root directory of the project (without the ```public/``` directory) inside the newly created directory ```laravel/```
